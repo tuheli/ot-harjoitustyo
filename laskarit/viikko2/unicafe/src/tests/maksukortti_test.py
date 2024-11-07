@@ -31,3 +31,7 @@ class TestMaksukortti(unittest.TestCase):
     def test_ota_rahaa_metodi_palauttaa_false_jos_rahat_ei_riitä(self):
         vastaus = self.maksukortti.ota_rahaa(2123)
         self.assertEqual(vastaus, False)
+
+    def test_kortin_merkkijonomuoto_on_oikein(self):
+        oletettu = "Kortilla on rahaa 10.00 euroa"
+        self.assertEqual(str(self.maksukortti), oletettu)
