@@ -67,10 +67,6 @@ class PhysicsEntity:
         pygame.draw.circle(surface, (255, 0, 0), self.position, 3)
     
     def render(self, surface: pygame.Surface, camera_offset=(0, 0)):
-        # image = self.game.assets[self.entity_type]
-        # scaled_image = pygame.transform.scale(image, (self.size[0], self.size[1]))
-        # surface.blit(scaled_image, (self.position[0] - camera_offset[0], self.position[1] - camera_offset[1]))
-
         position = (self.position[0] - camera_offset[0], self.position[1] - camera_offset[1])
         rect = pygame.Rect(position[0], position[1], self.size[0], self.size[1])
         pygame.draw.rect(surface, (220, 120, 20), rect)

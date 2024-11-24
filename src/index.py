@@ -1,7 +1,6 @@
 import sys
 import pygame
 
-from scripts import utils
 from scripts.entities import Player
 from scripts.tilemap import Tilemap
 
@@ -19,12 +18,6 @@ class Game:
 
     self.movement = [False, False]
     self.is_jump_pending = False
-
-    self.assets = {
-      'player': utils.load_image('/characters/platformChar_idle.png'),
-      'tiles': utils.load_images('/tiles'),
-      'items': utils.load_images('/items'),
-    }
 
     self.player = Player(self, 'player', (6 * TILE_SIZE, 0), (TILE_SIZE, TILE_SIZE))
     self.tilemap = Tilemap(self, tile_size=TILE_SIZE)
