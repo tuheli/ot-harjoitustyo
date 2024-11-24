@@ -15,7 +15,7 @@ NEIGHBOR_OFFSETS = [
 
 PHYSICS_TILES = {'tiles', 'items'}
 
-MAP_LENGTH_IN_TILES = 1_000_000
+MAP_LENGTH_IN_TILES = 10_000
 
 class Tilemap:
     def __init__(self, game, tile_size=64):
@@ -34,7 +34,7 @@ class Tilemap:
                     'position': (x_pos, y_pos)
                 }
 
-        for _ in range(0):
+        for _ in range(500):
             for x in range(1):
                 for y in range(9, 10):
                     x_pos = random.randrange(10, MAP_LENGTH_IN_TILES)
@@ -44,17 +44,6 @@ class Tilemap:
                         'variant': 4, # the file order index
                         'position': (x_pos, y_pos)
                     }
-
-            for x in range(1):
-                for y in range(8, 10):
-                    x_pos = random.randrange(10, MAP_LENGTH_IN_TILES)
-                    y_pos = y
-                    self.tilemap[str(x_pos) + f';{y_pos}'] = {
-                        'type': 'tiles',
-                        'variant': 4, # the file order index
-                        'position': (x_pos, y_pos)
-                    }
-
 
     def tiles_around(self, compare_position):
         tiles = []
