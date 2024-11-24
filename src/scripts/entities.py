@@ -1,6 +1,5 @@
 import pygame
 
-
 class PhysicsEntity:
     def __init__(self, game, entity_type, position, size):
         self.game = game
@@ -20,7 +19,7 @@ class PhysicsEntity:
 
     def rect(self) -> pygame.Rect:
         return pygame.Rect(self.position[0], self.position[1], self.size[0], self.size[1])
-
+    
     def update(self, tilemap, movement=(0, 0)):
         self.collisions = {
             'top': False,
@@ -62,12 +61,29 @@ class PhysicsEntity:
         self.velocity[1] = min(self.max_fall_speed, self.velocity[1] + self.fall_acceleration)
 
         if self.collisions['bottom'] or self.collisions['top']:
-            self.velocity[1] = 0
+            self.velocity[1] = 1
 
     def render_center_point(self, surface: pygame.Surface):
         pygame.draw.circle(surface, (255, 0, 0), self.position, 3)
     
     def render(self, surface: pygame.Surface, camera_offset=(0, 0)):
-        image = self.game.assets[self.entity_type]
-        scaled_image = pygame.transform.scale(image, (self.size[0], self.size[1]))
-        surface.blit(scaled_image, (self.position[0] - camera_offset[0], self.position[1] - camera_offset[1]))
+        # image = self.game.assets[self.entity_type]
+        # scaled_image = pygame.transform.scale(image, (self.size[0], self.size[1]))
+        # surface.blit(scaled_image, (self.position[0] - camera_offset[0], self.position[1] - camera_offset[1]))
+
+        position = (self.position[0] - camera_offset[0], self.position[1] - camera_offset[1])
+        rect = pygame.Rect(position[0], position[1], self.size[0], self.size[1])
+        pygame.draw.rect(surface, (220, 120, 20), rect)
+
+class Player(PhysicsEntity):
+    def __init__(self, game, entity_type, position, size):
+        super().__init__(game, entity_type, position, size)
+    
+    def jump(self) -> bool:
+        """
+        Returns true if jump was a success.
+        """
+        if not self.collisions['bottom']:
+            return False
+        self.velocity[1] = -20
+        return True
