@@ -22,9 +22,10 @@ class Game:
       'items': utils.load_images('/items'),
     }
 
-    self.player = PhysicsEntity(self, 'player', (0, 0), (64, 64))
+    self.player = PhysicsEntity(self, 'player', (6 * 64, 0), (64, 64))
     self.tilemap = Tilemap(self, tile_size=64)
     self.camera_offset = [0, 0]
+    self.camera_offset_speed = 8 # same as player speed
 
   def run(self):
     while True:
@@ -33,23 +34,16 @@ class Game:
           pygame.quit()
           sys.exit()
         if event.type == pygame.KEYDOWN:
-          if event.key == pygame.K_LEFT:
-            self.movement[0] = True
-          if event.key == pygame.K_RIGHT:
-            self.movement[1] = True
           if event.key == pygame.K_UP:
             self.player.velocity[1] = -20
-        if event.type == pygame.KEYUP:
-          if event.key == pygame.K_LEFT:
-            self.movement[0] = False
-          if event.key == pygame.K_RIGHT:
-            self.movement[1] = False
+
+      self.movement[1] = True
 
       self.screen.fill((14, 219, 248))
 
       self.player.update(tilemap=self.tilemap, movement=(self.movement[1] - self.movement[0], 0))
 
-      self.camera_offset[0] += 1
+      self.camera_offset[0] += self.camera_offset_speed
       self.tilemap.render(self.screen, camera_offset=self.camera_offset)
 
       # physics_tiles_around = self.tilemap.physics_rects_around(self.player.position)
