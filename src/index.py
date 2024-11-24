@@ -57,7 +57,7 @@ class Game:
       #   pygame.draw.rect(self.screen, (0, 220, 33), rect)
         
       # self.player.render_center_point(self.screen)
-      # self.player.render(self.screen)
+      self.player.render(self.screen, camera_offset=self.camera_offset)
 
       pygame.display.update()
       self.clock.tick(60)
