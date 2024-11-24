@@ -15,7 +15,7 @@ NEIGHBOR_OFFSETS = [
 
 PHYSICS_TILES = {'tiles', 'items'}
 
-MAP_LENGTH_IN_TILES = 300
+MAP_LENGTH_IN_TILES = 1_000_000
 
 class Tilemap:
     def __init__(self, game, tile_size=64):
@@ -34,7 +34,7 @@ class Tilemap:
                     'position': (x_pos, y_pos)
                 }
 
-        for _ in range(20):
+        for _ in range(0):
             for x in range(1):
                 for y in range(9, 10):
                     x_pos = random.randrange(10, MAP_LENGTH_IN_TILES)
@@ -74,20 +74,23 @@ class Tilemap:
         return rects
     
     def render(self, surface: pygame.Surface, camera_offset=(0, 0)):
-        for tile in self.offgrid_tiles:
-            pass
+        # for tile in self.offgrid_tiles:
+        #     pass
 
         font = pygame.font.SysFont(None, 24)
 
-        for key in self.tilemap:
-            tile = self.tilemap[key]
-            
-            position = (tile['position'][0] * self.tile_size - camera_offset[0], tile['position'][1] * self.tile_size - camera_offset[1])
+        for x in range(camera_offset[0] // self.tile_size, (camera_offset[0] + surface.get_width()) // self.tile_size + 1):
+            for y in range(camera_offset[1] // self.tile_size, (camera_offset[1] + surface.get_height()) // self.tile_size + 1):
+                key = str(x) + ';' + str(y)
+                if key in self.tilemap:
+                    tile = self.tilemap[key]
+                    
+                    position = (tile['position'][0] * self.tile_size - camera_offset[0], tile['position'][1] * self.tile_size - camera_offset[1])
 
-            rect = pygame.Rect(position[0], position[1], self.tile_size, self.tile_size)
-            
-            pygame.draw.rect(surface, (50, 50, 50), rect)
-            pygame.draw.rect(surface, (15, 15, 15), rect, 1)
+                    rect = pygame.Rect(position[0], position[1], self.tile_size, self.tile_size)
+                    
+                    pygame.draw.rect(surface, (50, 50, 50), rect)
+                    pygame.draw.rect(surface, (15, 15, 15), rect, 1)
 
-            text_surface = font.render(f"{tile['position']}", True, (255, 255, 255))
-            surface.blit(text_surface, position)
+                    text_surface = font.render(f"{tile['position']}", True, (255, 255, 255))
+                    surface.blit(text_surface, position)
