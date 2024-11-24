@@ -24,6 +24,7 @@ class Game:
 
     self.player = PhysicsEntity(self, 'player', (0, 0), (64, 64))
     self.tilemap = Tilemap(self, tile_size=64)
+    self.camera_offset = [0, 0]
 
   def run(self):
     while True:
@@ -48,14 +49,15 @@ class Game:
 
       self.player.update(tilemap=self.tilemap, movement=(self.movement[1] - self.movement[0], 0))
 
-      self.tilemap.render(self.screen)
+      self.camera_offset[0] += 1
+      self.tilemap.render(self.screen, camera_offset=self.camera_offset)
 
-      physics_tiles_around = self.tilemap.physics_rects_around(self.player.position)
-      for rect in physics_tiles_around:
-        pygame.draw.rect(self.screen, (0, 220, 33), rect)
+      # physics_tiles_around = self.tilemap.physics_rects_around(self.player.position)
+      # for rect in physics_tiles_around:
+      #   pygame.draw.rect(self.screen, (0, 220, 33), rect)
         
-      self.player.render_center_point(self.screen)
-      self.player.render(self.screen)
+      # self.player.render_center_point(self.screen)
+      # self.player.render(self.screen)
 
       pygame.display.update()
       self.clock.tick(60)

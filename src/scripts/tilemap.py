@@ -51,10 +51,6 @@ class Tilemap:
                     'position': (x_pos, y_pos)
                 }
 
-    def rect(self, tile) -> pygame.Rect:
-        grid_position = tile['position']
-        return pygame.Rect(grid_position[0] * self.tile_size, grid_position[1] * self.tile_size, self.tile_size, self.tile_size)
-
     def tiles_around(self, compare_position):
         tiles = []
         tile_position = (int(compare_position[0] // self.tile_size), int(compare_position[1] // self.tile_size)) # pixel position to grid position
@@ -72,7 +68,7 @@ class Tilemap:
                 rects.append(pygame.Rect(tile['position'][0] * self.tile_size, tile['position'][1] * self.tile_size, self.tile_size, self.tile_size))
         return rects
     
-    def render(self, surface: pygame.Surface):
+    def render(self, surface: pygame.Surface, camera_offset=(0, 0)):
         for tile in self.offgrid_tiles:
             pass
 
@@ -81,11 +77,12 @@ class Tilemap:
         for key in self.tilemap:
             tile = self.tilemap[key]
             
-            position = (tile['position'][0] * self.tile_size, tile['position'][1] * self.tile_size)
-            
-            pygame.draw.rect(surface, (50, 50, 50), self.rect(tile))
-            pygame.draw.rect(surface, (15, 15, 15), self.rect(tile), 1)
+            position = (tile['position'][0] * self.tile_size - camera_offset[0], tile['position'][1] * self.tile_size - camera_offset[1])
 
+            rect = pygame.Rect(position[0], position[1], self.tile_size, self.tile_size)
+            
+            pygame.draw.rect(surface, (50, 50, 50), rect)
+            pygame.draw.rect(surface, (15, 15, 15), rect, 1)
 
             text_surface = font.render(f"{tile['position']}", True, (255, 255, 255))
             surface.blit(text_surface, position)
