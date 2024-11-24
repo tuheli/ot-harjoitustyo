@@ -49,10 +49,12 @@ class Game:
       self.screen.fill((14, 219, 248))
 
       self.player.update(tilemap=self.tilemap, movement=(self.movement[1] - self.movement[0], 0))
+      
       if self.is_jump_pending:
         did_jump = self.player.jump() # do this after update to know if grounded or not
         if did_jump:
           self.is_jump_pending = False
+        # leaves the jump input pending for a while
         elif pygame.time.get_ticks() > self.jump_pending_end_time:
           self.is_jump_pending = False
 
