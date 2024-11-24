@@ -1,3 +1,4 @@
+import random
 import pygame
 
 NEIGHBOR_OFFSETS = [
@@ -14,6 +15,8 @@ NEIGHBOR_OFFSETS = [
 
 PHYSICS_TILES = {'tiles', 'items'}
 
+MAP_LENGTH_IN_TILES = 300
+
 class Tilemap:
     def __init__(self, game, tile_size=64):
         self.tile_size = tile_size
@@ -22,7 +25,7 @@ class Tilemap:
         self.game = game
 
         for y in range(1):
-            for x in range(20):
+            for x in range(MAP_LENGTH_IN_TILES):
                 x_pos = x
                 y_pos = 10
                 self.tilemap[str(x_pos) + f';{y_pos}'] = {
@@ -31,25 +34,27 @@ class Tilemap:
                     'position': (x_pos, y_pos)
                 }
 
-        for x in range(1):
-            for y in range(9, 10):
-                x_pos = 4
-                y_pos = y
-                self.tilemap[str(x_pos) + f';{y_pos}'] = {
-                    'type': 'tiles',
-                    'variant': 4, # the file order index
-                    'position': (x_pos, y_pos)
-                }
+        for _ in range(20):
+            for x in range(1):
+                for y in range(9, 10):
+                    x_pos = random.randrange(10, MAP_LENGTH_IN_TILES)
+                    y_pos = y
+                    self.tilemap[str(x_pos) + f';{y_pos}'] = {
+                        'type': 'tiles',
+                        'variant': 4, # the file order index
+                        'position': (x_pos, y_pos)
+                    }
 
-        for x in range(1):
-            for y in range(8, 10):
-                x_pos = 7
-                y_pos = y
-                self.tilemap[str(x_pos) + f';{y_pos}'] = {
-                    'type': 'tiles',
-                    'variant': 4, # the file order index
-                    'position': (x_pos, y_pos)
-                }
+            for x in range(1):
+                for y in range(8, 10):
+                    x_pos = random.randrange(10, MAP_LENGTH_IN_TILES)
+                    y_pos = y
+                    self.tilemap[str(x_pos) + f';{y_pos}'] = {
+                        'type': 'tiles',
+                        'variant': 4, # the file order index
+                        'position': (x_pos, y_pos)
+                    }
+
 
     def tiles_around(self, compare_position):
         tiles = []
