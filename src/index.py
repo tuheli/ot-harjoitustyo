@@ -9,6 +9,10 @@ SCREEN_HEIGHT = 480 * 2
 TILE_SIZE = 64
 
 
+# NOTE: Alot of the current code is based on a tutorial
+# I found: https://www.youtube.com/watch?v=2gABYM5M0ww
+
+
 class Game:
     def __init__(self):
         pygame.init()
