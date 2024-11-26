@@ -63,9 +63,6 @@ class PhysicsEntity:
         if self.collisions['bottom'] or self.collisions['top']:
             self.velocity[1] = 1
 
-    def render_center_point(self, surface: pygame.Surface):
-        pygame.draw.circle(surface, (255, 0, 0), self.position, 3)
-    
     def render(self, surface: pygame.Surface, camera_offset=(0, 0)):
         position = (self.position[0] - camera_offset[0], self.position[1] - camera_offset[1])
         rect = pygame.Rect(position[0], position[1], self.size[0], self.size[1])
