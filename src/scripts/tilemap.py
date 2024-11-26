@@ -17,6 +17,7 @@ PHYSICS_TILES = {'tiles', 'items'}
 
 MAP_LENGTH_IN_TILES = 10_000
 
+
 class Tilemap:
     def __init__(self, game, tile_size=64):
         self.tile_size = tile_size
@@ -30,7 +31,7 @@ class Tilemap:
                 y_pos = 10
                 self.tilemap[str(x_pos) + f';{y_pos}'] = {
                     'type': 'tiles',
-                    'variant': 4, # the file order index
+                    'variant': 4,  # the file order index
                     'position': (x_pos, y_pos)
                 }
 
@@ -41,27 +42,31 @@ class Tilemap:
                     y_pos = y
                     self.tilemap[str(x_pos) + f';{y_pos}'] = {
                         'type': 'tiles',
-                        'variant': 4, # the file order index
+                        'variant': 4,  # the file order index
                         'position': (x_pos, y_pos)
                     }
 
     def tiles_around(self, compare_position):
         tiles = []
-        tile_position = (int(compare_position[0] // self.tile_size), int(compare_position[1] // self.tile_size)) # pixel position to grid position
+        tile_position = (int(compare_position[0] // self.tile_size), int(
+            # pixel position to grid position
+            compare_position[1] // self.tile_size))
         for offset in NEIGHBOR_OFFSETS:
-            check_position = str(tile_position[0] + offset[0]) + ';' + str(tile_position[1] + offset[1])
+            check_position = str(
+                tile_position[0] + offset[0]) + ';' + str(tile_position[1] + offset[1])
             if check_position in self.tilemap:
                 tiles.append(self.tilemap[check_position])
 
         return tiles
-    
+
     def physics_rects_around(self, position) -> list[pygame.Rect]:
         rects = []
         for tile in self.tiles_around(position):
             if tile['type'] in PHYSICS_TILES:
-                rects.append(pygame.Rect(tile['position'][0] * self.tile_size, tile['position'][1] * self.tile_size, self.tile_size, self.tile_size))
+                rects.append(pygame.Rect(tile['position'][0] * self.tile_size,
+                             tile['position'][1] * self.tile_size, self.tile_size, self.tile_size))
         return rects
-    
+
     def render(self, surface: pygame.Surface, camera_offset=(0, 0)):
         # for tile in self.offgrid_tiles:
         #     pass
@@ -73,13 +78,16 @@ class Tilemap:
                 key = str(x) + ';' + str(y)
                 if key in self.tilemap:
                     tile = self.tilemap[key]
-                    
-                    position = (tile['position'][0] * self.tile_size - camera_offset[0], tile['position'][1] * self.tile_size - camera_offset[1])
 
-                    rect = pygame.Rect(position[0], position[1], self.tile_size, self.tile_size)
-                    
+                    position = (tile['position'][0] * self.tile_size - camera_offset[0],
+                                tile['position'][1] * self.tile_size - camera_offset[1])
+
+                    rect = pygame.Rect(
+                        position[0], position[1], self.tile_size, self.tile_size)
+
                     pygame.draw.rect(surface, (50, 50, 50), rect)
                     pygame.draw.rect(surface, (15, 15, 15), rect, 1)
 
-                    text_surface = font.render(f"{tile['position']}", True, (255, 255, 255))
+                    text_surface = font.render(
+                        f"{tile['position']}", True, (255, 255, 255))
                     surface.blit(text_surface, position)
