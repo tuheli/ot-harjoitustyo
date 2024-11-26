@@ -1,6 +1,4 @@
-# Ohjelmistotekniikka, harjoitustyö
-
-Valitsin aiheeksi **pelin** _The Impossible Game_.
+# The Impossible Game
 
 ##### Linkki työaikakirjanpitoon
 
