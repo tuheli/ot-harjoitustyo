@@ -3,6 +3,7 @@ from unittest.mock import MagicMock
 from scripts.entities import Player
 from scripts.tilemap import Tilemap
 
+
 class TestPlayer(unittest.TestCase):
 
     def setUp(self):
@@ -21,4 +22,3 @@ class TestPlayer(unittest.TestCase):
     def test_player_collision_with_tilemap(self):
         self.player.update(self.tilemap, movement=(0, 0))
         self.assertTrue(self.player.position[1] >= 0)
-
