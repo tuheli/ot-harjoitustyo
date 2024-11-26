@@ -2,10 +2,6 @@
 
 Valitsin aiheeksi **pelin** _The Impossible Game_.
 
-##### Linkki laskareihin
-
-https://github.com/tuheli/ot-harjoitustyo/tree/main/laskarit
-
 ##### Linkki työaikakirjanpitoon
 
 https://github.com/tuheli/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md
@@ -58,3 +54,53 @@ Pelihahmo eli neliö liikkuu tasaista nopeutta ruudulla oikealle. Pelaaja voi an
 - Törmäyksien tunnistus kuvioiden välillä, tehty
 - Pelaajan edistymisen tarkastelu: läpäistyt kentät ja montako yritystä kutakin kenttää kohden
 - Kenttien lataaminen tiedostosta
+
+## Asennus
+
+1. Asenna riippuvuudet komennolla:
+
+```bash
+poetry install
+```
+
+2. Käynnistä sovellus komennolla:
+
+```bash
+poetry run invoke start
+```
+
+## Komentorivitoiminnot
+
+### Ohjelman suorittaminen
+
+Ohjelman pystyy suorittamaan komennolla:
+
+```bash
+poetry run invoke start
+```
+
+### Testaus
+
+Testit suoritetaan komennolla:
+
+```bash
+poetry run invoke test
+```
+
+### Testikattavuus
+
+Testikattavuusraportin voi generoida komennolla:
+
+```bash
+poetry run invoke coverage-report
+```
+
+Raportti generoituu _htmlcov_-hakemistoon.
+
+### Pylint
+
+Tiedoston [.pylintrc](./.pylintrc) määrittelemät tarkistukset voi suorittaa komennolla:
+
+```bash
+poetry run invoke lint
+```
