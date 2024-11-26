@@ -55,6 +55,6 @@ Sovellus aukeaa päävalikkonäkymään, josta pelaaja voi valita pelattavan ken
 
 Pelihahmo eli neliö liikkuu tasaista nopeutta ruudulla oikealle. Pelaaja voi antaa syötteenä hyppykomennon ja oikein ajoitettuna estää törmäyksiä esteisiin tai putoamisen ei-sallitulle alueelle.
 
-- Törmäyksien tunnistus kuvioiden välillä: neliö/suorakulmio, neliö/pallo, neliö/kolmio
+- Törmäyksien tunnistus kuvioiden välillä, tehty
 - Pelaajan edistymisen tarkastelu: läpäistyt kentät ja montako yritystä kutakin kenttää kohden
 - Kenttien lataaminen tiedostosta
