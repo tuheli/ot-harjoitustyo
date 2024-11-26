@@ -23,7 +23,7 @@ class Game:
     self.tilemap = Tilemap(self, tile_size=TILE_SIZE)
     self.camera_offset = [0, 0]
     self.camera_offset_speed = 8 # same as player speed
-    self.jump_pending_duration = 200 # milliseconds
+    self.jump_pending_duration = 150 # milliseconds
     self.jump_pending_end_time = 0
 
   def run(self):
@@ -51,10 +51,9 @@ class Game:
         elif pygame.time.get_ticks() > self.jump_pending_end_time:
           self.is_jump_pending = False
 
-
       self.camera_offset[0] += self.camera_offset_speed
-      self.tilemap.render(self.screen, camera_offset=self.camera_offset)
 
+      self.tilemap.render(self.screen, camera_offset=self.camera_offset)
       self.player.render(self.screen, camera_offset=self.camera_offset)
 
       pygame.display.update()
