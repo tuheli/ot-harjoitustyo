@@ -55,13 +55,13 @@ Pelihahmo eli neliö liikkuu tasaista nopeutta ruudulla oikealle. Pelaaja voi an
 
 ## Asennus
 
-1. Asenna riippuvuudet komennolla:
+1. Riippuvuudet asennetaan komennolla:
 
 ```bash
 poetry install
 ```
 
-2. Käynnistä sovellus komennolla:
+2. Sovellus käynnistetään komennolla:
 
 ```bash
 poetry run invoke start
@@ -79,7 +79,7 @@ poetry run invoke start
 
 ### Testaus
 
-Testit suoritetaan komennolla:
+Voit ajaa testit komennolla:
 
 ```bash
 poetry run invoke test
@@ -87,17 +87,17 @@ poetry run invoke test
 
 ### Testikattavuus
 
-Testikattavuusraportin voi generoida komennolla:
+Testikattavuusraportti luodaan komennolla:
 
 ```bash
 poetry run invoke coverage-report
 ```
 
-Raportti generoituu _htmlcov_-hakemistoon.
+Löydät generoidun raportin _htmlcov_-hakemistosta.
 
 ### Pylint
 
-Tiedoston [.pylintrc](./.pylintrc) määrittelemät tarkistukset voi suorittaa komennolla:
+Pylint tarkistukset suoritetaan komennolla
 
 ```bash
 poetry run invoke lint
