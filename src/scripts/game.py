@@ -16,18 +16,19 @@ class Game:
 
         self.player = Player(
             self, 'player', (6 * TILE_SIZE, 0), (TILE_SIZE, TILE_SIZE))
-        self.tilemap = Tilemap(self, tile_size=TILE_SIZE)
+        self.tilemap = Tilemap(self, TILE_SIZE) # initialize to something
         self.camera_offset = [0, 0]
         self.camera_offset_speed = 8  # same as player speed
         self.jump_pending_duration = 150  # milliseconds
         self.jump_pending_end_time = 0
 
-    def on_enter_game(self):
+    def on_enter_game(self, tilemap: Tilemap):
         # reset / re-create necessary things
         self.player = Player(
             self, 'player', (6 * TILE_SIZE, 0), (TILE_SIZE, TILE_SIZE))
         self.camera_offset = [0, 0]
         self.is_jump_pending = False
+        self.tilemap = tilemap
 
     def run(self, toggle_menu):
         while True:
