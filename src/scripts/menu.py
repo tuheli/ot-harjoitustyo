@@ -1,12 +1,13 @@
 import pygame
 
 class LevelButton:
-    def __init__(self, text: str, position = (0, 0)):
+    def __init__(self, text: str, level_index: int, position = (0, 0)):
         self.rect = pygame.Rect(position[0], position[1], 200, 80)
         self.font = pygame.font.SysFont('Corbel', 52)
         self.text = self.font.render(text, True, (245, 245, 245))
         self.text_rect = self.text.get_rect()
         self.text_rect.topleft = (position[0], position[1])
+        self.level_index = level_index
 
     def render(self, screen: pygame.Surface, draw_color):
         pygame.draw.rect(screen, draw_color,
@@ -32,7 +33,7 @@ class Menu:
         for i in range(4):
             position = (first_button_x, first_button_y)
             text = f'Level {i}'
-            self.level_buttons.append(LevelButton(text, position))
+            self.level_buttons.append(LevelButton(text, i, position))
             first_button_y += button_y_gap
 
     def run(self, on_click_level):
@@ -56,9 +57,8 @@ class Menu:
                     pygame.quit()
                 if ev.type == pygame.MOUSEBUTTONDOWN:
                     if active_level_button is not None:
-                        on_click_level()
+                        on_click_level(active_level_button.level_index)
                         did_click_level = True
-
 
             pygame.display.update()  
 
