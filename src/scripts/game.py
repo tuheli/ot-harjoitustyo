@@ -22,6 +22,13 @@ class Game:
         self.jump_pending_duration = 150  # milliseconds
         self.jump_pending_end_time = 0
 
+    def on_enter_game(self):
+        # reset / re-create necessary things
+        self.player = Player(
+            self, 'player', (6 * TILE_SIZE, 0), (TILE_SIZE, TILE_SIZE))
+        self.camera_offset = [0, 0]
+        self.is_jump_pending = False
+
     def run(self, toggle_menu):
         while True:
             did_toggle_menu = False

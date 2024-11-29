@@ -18,6 +18,9 @@ class App:
     def toggle_menu(self):
         self.is_on_menu = not self.is_on_menu
 
+        if not self.is_on_menu:
+            self.game.on_enter_game()
+
     def run(self):
         while True:
             if self.is_on_menu:
