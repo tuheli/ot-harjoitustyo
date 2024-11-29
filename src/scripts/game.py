@@ -1,21 +1,14 @@
 import sys
 import pygame
 
+from scripts.constants import TILE_SIZE
 from scripts.entities import Player
 from scripts.tilemap import Tilemap
 
 
-SCREEN_WIDTH = 640 * 2
-SCREEN_HEIGHT = 480 * 2
-TILE_SIZE = 64
-
-
 class Game:
-    def __init__(self):
-        pygame.init()
-        pygame.display.set_caption('The Impossible Game')
-        screen_size = (SCREEN_WIDTH, SCREEN_HEIGHT)
-        self.screen = pygame.display.set_mode(screen_size)
+    def __init__(self, screen: pygame.Surface):
+        self.screen = screen
         self.clock = pygame.time.Clock()
 
         self.movement = [False, False]
@@ -29,8 +22,10 @@ class Game:
         self.jump_pending_duration = 150  # milliseconds
         self.jump_pending_end_time = 0
 
-    def run(self):
+    def run(self, toggle_menu):
         while True:
+            did_toggle_menu = False
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -39,6 +34,9 @@ class Game:
                     if event.key == pygame.K_UP:
                         self.is_jump_pending = True
                         self.jump_pending_end_time = pygame.time.get_ticks() + self.jump_pending_duration
+                    if event.key == pygame.K_ESCAPE:
+                        toggle_menu()
+                        did_toggle_menu = True
 
             self.movement[1] = True
 
@@ -62,3 +60,6 @@ class Game:
 
             pygame.display.update()
             self.clock.tick(60)
+
+            if did_toggle_menu:
+                break
