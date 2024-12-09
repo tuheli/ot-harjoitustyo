@@ -1,4 +1,3 @@
-import random
 import pygame
 
 NEIGHBOR_OFFSETS = [
@@ -19,32 +18,11 @@ MAP_LENGTH_IN_TILES = 10_000
 
 
 class Tilemap:
-    def __init__(self, game, tile_size=64):
+    def __init__(self, game_or_editor, tilemap_data={}, tile_size=64):
         self.tile_size = tile_size
-        self.tilemap = {}
         self.offgrid_tiles = []
-        self.game = game
-
-        for y in range(1):
-            for x in range(MAP_LENGTH_IN_TILES):
-                x_pos = x
-                y_pos = 10
-                self.tilemap[str(x_pos) + f';{y_pos}'] = {
-                    'type': 'tiles',
-                    'variant': 4,  # the file order index
-                    'position': (x_pos, y_pos)
-                }
-
-        for _ in range(500):
-            for x in range(1):
-                for y in range(9, 10):
-                    x_pos = random.randrange(10, MAP_LENGTH_IN_TILES)
-                    y_pos = y
-                    self.tilemap[str(x_pos) + f';{y_pos}'] = {
-                        'type': 'tiles',
-                        'variant': 4,  # the file order index
-                        'position': (x_pos, y_pos)
-                    }
+        self.game = game_or_editor
+        self.tilemap = tilemap_data
 
     def tiles_around(self, compare_position):
         tiles = []
@@ -66,7 +44,7 @@ class Tilemap:
                 rects.append(pygame.Rect(tile['position'][0] * self.tile_size,
                              tile['position'][1] * self.tile_size, self.tile_size, self.tile_size))
         return rects
-
+    
     def render(self, surface: pygame.Surface, camera_offset=(0, 0)):
         # for tile in self.offgrid_tiles:
         #     pass
