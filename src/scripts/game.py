@@ -1,7 +1,7 @@
 import sys
 import pygame
 
-from scripts.constants import TILE_SIZE
+from scripts.constants import PLAYER_START, TILE_SIZE
 from scripts.entities import Player
 from scripts.tilemap import Tilemap
 
@@ -15,7 +15,7 @@ class Game:
         self.is_jump_pending = False
 
         self.player = Player(
-            self, 'player', (6 * TILE_SIZE, 0), (TILE_SIZE, TILE_SIZE))
+            self, 'player', PLAYER_START, (TILE_SIZE, TILE_SIZE))
         self.tilemap = Tilemap(self, TILE_SIZE) # initialize to something
         self.camera_offset = [0, 0]
         self.camera_offset_speed = 8  # same as player speed
@@ -25,12 +25,12 @@ class Game:
     def on_enter_game(self, tilemap: Tilemap):
         # reset / re-create necessary things
         self.player = Player(
-            self, 'player', (6 * TILE_SIZE, 0), (TILE_SIZE, TILE_SIZE))
+            self, 'player', PLAYER_START, (TILE_SIZE, TILE_SIZE))
         self.camera_offset = [0, 0]
         self.is_jump_pending = False
         self.tilemap = tilemap
 
-    def run(self, toggle_menu):
+    def run(self, toggle_menu, on_player_died):
         while True:
             did_toggle_menu = False
 
@@ -52,6 +52,11 @@ class Game:
 
             self.player.update(tilemap=self.tilemap, movement=(
                 self.movement[1] - self.movement[0], 0))
+            
+            # is dead check
+            is_dead = self.player.is_dead_this_frame()
+            if is_dead:
+                on_player_died()
 
             if self.is_jump_pending:
                 did_jump = self.player.jump()  # do this after update to know if grounded or not
