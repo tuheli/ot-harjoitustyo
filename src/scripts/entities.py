@@ -80,8 +80,18 @@ class Player(PhysicsEntity):
     def jump(self) -> bool:
         """
         Returns true if jump was a success.
+        Has to be called after update.
         """
         if not self.collisions['bottom']:
             return False
         self.velocity[1] = -20
         return True
+
+    def is_dead_this_frame(self):
+        """
+        Returns true if player died during this frame.
+        Has to be called after update.
+        """
+        if self.collisions['right']:
+            return True
+        return False
