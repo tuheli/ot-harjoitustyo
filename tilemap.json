@@ -1,35 +1,299 @@
 {
     "tilemap": {
-        "9;14": {
+        "5;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                5,
+                15
+            ]
+        },
+        "6;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                6,
+                15
+            ]
+        },
+        "7;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                7,
+                15
+            ]
+        },
+        "8;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                8,
+                15
+            ]
+        },
+        "9;15": {
             "type": "tiles",
             "variant": 0,
             "position": [
                 9,
-                14
+                15
             ]
         },
-        "10;14": {
+        "10;15": {
             "type": "tiles",
             "variant": 0,
             "position": [
                 10,
-                14
+                15
             ]
         },
-        "11;14": {
+        "11;15": {
             "type": "tiles",
             "variant": 0,
             "position": [
                 11,
-                14
+                15
             ]
         },
-        "12;14": {
+        "12;15": {
             "type": "tiles",
             "variant": 0,
             "position": [
                 12,
+                15
+            ]
+        },
+        "13;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                13,
+                15
+            ]
+        },
+        "15;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                15,
+                15
+            ]
+        },
+        "16;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                16,
+                15
+            ]
+        },
+        "14;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                14,
+                15
+            ]
+        },
+        "17;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                17,
+                15
+            ]
+        },
+        "18;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                18,
+                15
+            ]
+        },
+        "19;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                19,
+                15
+            ]
+        },
+        "20;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                20,
+                15
+            ]
+        },
+        "21;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                21,
+                15
+            ]
+        },
+        "22;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                22,
+                15
+            ]
+        },
+        "23;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                23,
+                15
+            ]
+        },
+        "24;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                24,
+                15
+            ]
+        },
+        "25;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                25,
+                15
+            ]
+        },
+        "26;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                26,
+                15
+            ]
+        },
+        "27;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                27,
+                15
+            ]
+        },
+        "28;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                28,
+                15
+            ]
+        },
+        "29;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                29,
+                15
+            ]
+        },
+        "30;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                30,
+                15
+            ]
+        },
+        "31;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                31,
+                15
+            ]
+        },
+        "32;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                32,
+                15
+            ]
+        },
+        "32;14": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                32,
                 14
+            ]
+        },
+        "32;13": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                32,
+                13
+            ]
+        },
+        "32;12": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                32,
+                12
+            ]
+        },
+        "32;11": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                32,
+                11
+            ]
+        },
+        "32;10": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                32,
+                10
+            ]
+        },
+        "4;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                4,
+                15
+            ]
+        },
+        "3;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                3,
+                15
+            ]
+        },
+        "2;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                2,
+                15
+            ]
+        },
+        "1;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                1,
+                15
             ]
         },
         "13;14": {
@@ -37,22 +301,6 @@
             "variant": 0,
             "position": [
                 13,
-                14
-            ]
-        },
-        "14;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                14,
-                14
-            ]
-        },
-        "15;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                15,
                 14
             ]
         },
@@ -64,54 +312,6 @@
                 14
             ]
         },
-        "17;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                17,
-                14
-            ]
-        },
-        "19;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                19,
-                14
-            ]
-        },
-        "20;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                20,
-                14
-            ]
-        },
-        "18;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                18,
-                14
-            ]
-        },
-        "21;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                21,
-                14
-            ]
-        },
-        "22;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                22,
-                14
-            ]
-        },
         "23;14": {
             "type": "tiles",
             "variant": 0,
@@ -120,555 +320,107 @@
                 14
             ]
         },
-        "24;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                24,
-                14
-            ]
-        },
-        "25;14": {
+        "25;13": {
             "type": "tiles",
             "variant": 0,
             "position": [
                 25,
-                14
+                13
             ]
         },
-        "26;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                26,
-                14
-            ]
-        },
-        "27;14": {
+        "27;12": {
             "type": "tiles",
             "variant": 0,
             "position": [
                 27,
-                14
+                12
             ]
         },
-        "28;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                28,
-                14
-            ]
-        },
-        "9;5": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                9,
-                5
-            ]
-        },
-        "9;6": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                9,
-                6
-            ]
-        },
-        "9;7": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                9,
-                7
-            ]
-        },
-        "9;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                9,
-                8
-            ]
-        },
-        "11;5": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                11,
-                5
-            ]
-        },
-        "11;6": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                11,
-                6
-            ]
-        },
-        "11;7": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                11,
-                7
-            ]
-        },
-        "11;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                11,
-                8
-            ]
-        },
-        "10;6": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                10,
-                6
-            ]
-        },
-        "9;4": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                9,
-                4
-            ]
-        },
-        "11;4": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                11,
-                4
-            ]
-        },
-        "13;4": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                13,
-                4
-            ]
-        },
-        "13;5": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                13,
-                5
-            ]
-        },
-        "13;6": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                13,
-                6
-            ]
-        },
-        "13;7": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                13,
-                7
-            ]
-        },
-        "13;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                13,
-                8
-            ]
-        },
-        "14;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                14,
-                8
-            ]
-        },
-        "15;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                15,
-                8
-            ]
-        },
-        "14;6": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                14,
-                6
-            ]
-        },
-        "14;4": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                14,
-                4
-            ]
-        },
-        "15;4": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                15,
-                4
-            ]
-        },
-        "17;4": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                17,
-                4
-            ]
-        },
-        "17;5": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                17,
-                5
-            ]
-        },
-        "17;6": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                17,
-                6
-            ]
-        },
-        "17;7": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                17,
-                7
-            ]
-        },
-        "17;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                17,
-                8
-            ]
-        },
-        "18;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                18,
-                8
-            ]
-        },
-        "19;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                19,
-                8
-            ]
-        },
-        "21;4": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                21,
-                4
-            ]
-        },
-        "21;5": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                21,
-                5
-            ]
-        },
-        "21;6": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                21,
-                6
-            ]
-        },
-        "21;7": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                21,
-                7
-            ]
-        },
-        "21;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                21,
-                8
-            ]
-        },
-        "22;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                22,
-                8
-            ]
-        },
-        "23;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                23,
-                8
-            ]
-        },
-        "25;4": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                25,
-                4
-            ]
-        },
-        "25;5": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                25,
-                5
-            ]
-        },
-        "25;6": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                25,
-                6
-            ]
-        },
-        "25;7": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                25,
-                7
-            ]
-        },
-        "25;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                25,
-                8
-            ]
-        },
-        "26;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                26,
-                8
-            ]
-        },
-        "27;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                27,
-                8
-            ]
-        },
-        "28;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                28,
-                8
-            ]
-        },
-        "28;7": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                28,
-                7
-            ]
-        },
-        "28;6": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                28,
-                6
-            ]
-        },
-        "28;5": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                28,
-                5
-            ]
-        },
-        "28;4": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                28,
-                4
-            ]
-        },
-        "27;4": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                27,
-                4
-            ]
-        },
-        "26;4": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                26,
-                4
-            ]
-        },
-        "29;14": {
+        "29;11": {
             "type": "tiles",
             "variant": 0,
             "position": [
                 29,
-                14
+                11
             ]
         },
-        "30;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                30,
-                14
-            ]
-        },
-        "31;14": {
+        "31;10": {
             "type": "tiles",
             "variant": 0,
             "position": [
                 31,
-                14
+                10
             ]
         },
-        "32;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                32,
-                14
-            ]
-        },
-        "33;14": {
+        "33;10": {
             "type": "tiles",
             "variant": 0,
             "position": [
                 33,
-                14
+                10
             ]
         },
-        "34;14": {
+        "37;10": {
             "type": "tiles",
             "variant": 0,
             "position": [
-                34,
-                14
+                37,
+                10
             ]
         },
-        "35;14": {
+        "39;11": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                39,
+                11
+            ]
+        },
+        "41;10": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                41,
+                10
+            ]
+        },
+        "43;11": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                43,
+                11
+            ]
+        },
+        "45;10": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                45,
+                10
+            ]
+        },
+        "47;11": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                47,
+                11
+            ]
+        },
+        "35;11": {
             "type": "tiles",
             "variant": 0,
             "position": [
                 35,
-                14
-            ]
-        },
-        "36;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                36,
-                14
-            ]
-        },
-        "14;13": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                14,
-                13
-            ]
-        },
-        "36;13": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                36,
-                13
-            ]
-        },
-        "36;12": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                36,
-                12
-            ]
-        },
-        "36;11": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                36,
                 11
             ]
         },
-        "36;10": {
+        "10;14": {
             "type": "tiles",
             "variant": 0,
             "position": [
-                36,
-                10
-            ]
-        },
-        "36;9": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                36,
-                9
-            ]
-        },
-        "8;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                8,
+                10,
                 14
             ]
         },
@@ -680,345 +432,633 @@
                 14
             ]
         },
-        "6;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                6,
-                14
-            ]
-        },
-        "5;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                5,
-                14
-            ]
-        },
-        "4;14": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                14
-            ]
-        },
-        "4;13": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                13
-            ]
-        },
-        "4;12": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                12
-            ]
-        },
-        "4;11": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                11
-            ]
-        },
-        "4;10": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                10
-            ]
-        },
-        "4;9": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                9
-            ]
-        },
-        "4;8": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                8
-            ]
-        },
-        "4;7": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                7
-            ]
-        },
-        "4;6": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                6
-            ]
-        },
-        "4;5": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                5
-            ]
-        },
-        "4;4": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                4
-            ]
-        },
-        "4;3": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                3
-            ]
-        },
-        "4;2": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                2
-            ]
-        },
-        "4;1": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                1
-            ]
-        },
-        "4;0": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                0
-            ]
-        },
-        "4;-1": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                -1
-            ]
-        },
-        "4;-2": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                -2
-            ]
-        },
-        "4;-3": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                -3
-            ]
-        },
-        "4;-4": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                -4
-            ]
-        },
-        "4;-5": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                -5
-            ]
-        },
-        "4;-6": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                -6
-            ]
-        },
-        "4;-7": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                -7
-            ]
-        },
-        "17;13": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                17,
-                13
-            ]
-        },
-        "20;13": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                20,
-                13
-            ]
-        },
-        "27;13": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                27,
-                13
-            ]
-        },
-        "29;12": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                29,
-                12
-            ]
-        },
-        "31;11": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                31,
-                11
-            ]
-        },
-        "33;10": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                33,
-                10
-            ]
-        },
-        "35;9": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                35,
-                9
-            ]
-        },
-        "37;9": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                37,
-                9
-            ]
-        },
-        "41;9": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                41,
-                9
-            ]
-        },
-        "43;10": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                43,
-                10
-            ]
-        },
-        "45;9": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                45,
-                9
-            ]
-        },
-        "47;10": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                47,
-                10
-            ]
-        },
-        "49;9": {
+        "49;12": {
             "type": "tiles",
             "variant": 0,
             "position": [
                 49,
-                9
+                12
             ]
         },
-        "51;10": {
+        "51;13": {
             "type": "tiles",
             "variant": 0,
             "position": [
                 51,
-                10
+                13
             ]
         },
-        "39;10": {
+        "53;14": {
             "type": "tiles",
             "variant": 0,
             "position": [
-                39,
-                10
+                53,
+                14
             ]
         },
-        "6;12": {
+        "55;15": {
             "type": "tiles",
             "variant": 0,
             "position": [
-                6,
-                12
+                55,
+                15
             ]
         },
-        "5;12": {
+        "57;16": {
             "type": "tiles",
             "variant": 0,
             "position": [
-                5,
-                12
+                57,
+                16
             ]
         },
-        "7;12": {
+        "59;17": {
             "type": "tiles",
             "variant": 0,
             "position": [
-                7,
-                12
+                59,
+                17
+            ]
+        },
+        "60;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                60,
+                17
+            ]
+        },
+        "61;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                61,
+                17
+            ]
+        },
+        "62;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                62,
+                17
+            ]
+        },
+        "63;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                63,
+                17
+            ]
+        },
+        "64;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                64,
+                17
+            ]
+        },
+        "65;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                65,
+                17
+            ]
+        },
+        "64;16": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                64,
+                16
+            ]
+        },
+        "67;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                67,
+                17
+            ]
+        },
+        "68;16": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                68,
+                16
+            ]
+        },
+        "68;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                68,
+                17
+            ]
+        },
+        "69;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                69,
+                17
+            ]
+        },
+        "66;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                66,
+                17
+            ]
+        },
+        "70;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                70,
+                17
+            ]
+        },
+        "71;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                71,
+                17
+            ]
+        },
+        "72;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                72,
+                17
+            ]
+        },
+        "73;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                73,
+                17
+            ]
+        },
+        "70;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                70,
+                15
+            ]
+        },
+        "72;14": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                72,
+                14
+            ]
+        },
+        "74;13": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                74,
+                13
+            ]
+        },
+        "76;14": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                76,
+                14
+            ]
+        },
+        "78;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                78,
+                15
+            ]
+        },
+        "80;16": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                80,
+                16
+            ]
+        },
+        "74;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                74,
+                17
+            ]
+        },
+        "75;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                75,
+                17
+            ]
+        },
+        "76;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                76,
+                17
+            ]
+        },
+        "77;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                77,
+                17
+            ]
+        },
+        "78;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                78,
+                17
+            ]
+        },
+        "79;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                79,
+                17
+            ]
+        },
+        "80;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                80,
+                17
+            ]
+        },
+        "81;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                81,
+                17
+            ]
+        },
+        "82;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                82,
+                17
+            ]
+        },
+        "83;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                83,
+                17
+            ]
+        },
+        "84;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                84,
+                17
+            ]
+        },
+        "85;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                85,
+                17
+            ]
+        },
+        "86;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                86,
+                17
+            ]
+        },
+        "87;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                87,
+                17
+            ]
+        },
+        "88;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                88,
+                17
+            ]
+        },
+        "89;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                89,
+                17
+            ]
+        },
+        "89;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                89,
+                15
+            ]
+        },
+        "89;14": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                89,
+                14
+            ]
+        },
+        "89;16": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                89,
+                16
+            ]
+        },
+        "82;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                82,
+                15
+            ]
+        },
+        "84;14": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                84,
+                14
+            ]
+        },
+        "86;13": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                86,
+                13
+            ]
+        },
+        "89;13": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                89,
+                13
+            ]
+        },
+        "88;13": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                88,
+                13
+            ]
+        },
+        "87;13": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                87,
+                13
+            ]
+        },
+        "90;13": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                90,
+                13
+            ]
+        },
+        "91;13": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                91,
+                13
+            ]
+        },
+        "92;13": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                92,
+                13
+            ]
+        },
+        "91;14": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                91,
+                14
+            ]
+        },
+        "91;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                91,
+                15
+            ]
+        },
+        "91;16": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                91,
+                16
+            ]
+        },
+        "91;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                91,
+                17
+            ]
+        },
+        "90;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                90,
+                17
+            ]
+        },
+        "87;14": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                87,
+                14
+            ]
+        },
+        "87;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                87,
+                15
+            ]
+        },
+        "87;16": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                87,
+                16
+            ]
+        },
+        "86;14": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                86,
+                14
+            ]
+        },
+        "86;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                86,
+                15
+            ]
+        },
+        "86;16": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                86,
+                16
+            ]
+        },
+        "88;14": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                88,
+                14
+            ]
+        },
+        "88;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                88,
+                15
+            ]
+        },
+        "88;16": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                88,
+                16
+            ]
+        },
+        "90;16": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                90,
+                16
+            ]
+        },
+        "90;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                90,
+                15
+            ]
+        },
+        "90;14": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                90,
+                14
+            ]
+        },
+        "92;14": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                92,
+                14
+            ]
+        },
+        "92;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                92,
+                15
+            ]
+        },
+        "92;16": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                92,
+                16
+            ]
+        },
+        "92;17": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                92,
+                17
+            ]
+        },
+        "0;15": {
+            "type": "tiles",
+            "variant": 0,
+            "position": [
+                0,
+                15
             ]
         }
     },
     "player_start": [
-        6,
-        11
+        0,
+        14
     ]
 }
