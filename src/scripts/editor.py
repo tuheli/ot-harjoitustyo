@@ -15,7 +15,13 @@ class Editor:
         tilemap = load_tilemap_data_from_json(TILEMAP_SAVE_PATH)
         self.tilemap = EditorTilemap(
             self, tilemap_data=tilemap['tilemap'], player_start=tilemap['player_start'])
-        self.camera_offset = [0, 0]
+
+        player_position = (
+            self.tilemap.player_start[0] * TILE_SIZE, self.tilemap.player_start[1] * TILE_SIZE)
+        camera_offset_tiles = 9
+        self.camera_offset = [player_position[0] -
+                              camera_offset_tiles * TILE_SIZE, 0]
+
         self.camera_offset_speed = EDITOR_CAMERA_SPEED
 
         self.is_selecting = False
@@ -64,7 +70,7 @@ class Editor:
             ("Left Click (Hold)", "Paint tile"),
             ("Right Click (Hold)", "Erase tile"),
             ("Ctrl + S", "Save tilemap"),
-            # ("Shift + Left Click (Drag)", "Select tiles"),
+            ("T", "Set player start at mouse position"),
             ("Arrow Keys", "Move All Tiles"),
         ]
 
@@ -149,8 +155,12 @@ class Editor:
 
             self.tilemap.render(self.screen, camera_offset=self.camera_offset)
 
+            # player_start_rect = pygame.Rect(
+            #     PLAYER_START[0] - self.camera_offset[0], PLAYER_START[1] - self.camera_offset[1], TILE_SIZE, TILE_SIZE)
+            
             player_start_rect = pygame.Rect(
-                PLAYER_START[0] - self.camera_offset[0], PLAYER_START[1] - self.camera_offset[1], TILE_SIZE, TILE_SIZE)
+                self.tilemap.player_start[0] * TILE_SIZE - self.camera_offset[0], self.tilemap.player_start[1] * TILE_SIZE - self.camera_offset[1], TILE_SIZE, TILE_SIZE)
+            
             pygame.draw.rect(self.screen, (255, 165, 0), player_start_rect)
 
             if self.is_selecting and self.selection_start:

@@ -28,7 +28,9 @@ class Game:
             tilemap.player_start[0] * TILE_SIZE, tilemap.player_start[1] * TILE_SIZE)
         self.player = Player(
             self, 'player', player_position, (TILE_SIZE, TILE_SIZE))
-        self.camera_offset = [0, 0]
+        camera_offset_tiles = 6
+        self.camera_offset = [player_position[0] -
+                              camera_offset_tiles * TILE_SIZE, 0]
         self.is_jump_pending = False
         self.tilemap = tilemap
 
