@@ -1,7 +1,7 @@
 import sys
 import pygame
 
-from scripts.constants import EDITOR_CAMERA_SPEED, PLAYER_START, TICK_SPEED, TILE_SIZE, TILEMAP_SAVE_PATH
+from scripts.constants import EDITOR_CAMERA_SPEED, TICK_SPEED, TILE_SIZE, TILEMAP_SAVE_PATH
 from scripts.editor_tilemap import EditorTilemap
 from scripts.utils import get_tilemap, save_tilemap_to_json, screen_to_tilemap_position, load_tilemap_data_from_json
 
