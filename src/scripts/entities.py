@@ -1,5 +1,7 @@
 import pygame
 
+from scripts.constants import PLAYER_SPEED
+
 
 class PhysicsEntity:
     def __init__(self, game, entity_type, position, size):
@@ -8,7 +10,7 @@ class PhysicsEntity:
         self.position = list(position)
         self.size = size
         self.velocity = [0, 0]
-        self.movespeed = 8
+        self.movespeed = PLAYER_SPEED
         self.max_fall_speed = 20
         self.fall_acceleration = 2
         self.collisions = {

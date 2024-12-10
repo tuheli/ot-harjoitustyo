@@ -1,7 +1,7 @@
 import sys
 import pygame
 
-from scripts.constants import PLAYER_START, TILE_SIZE
+from scripts.constants import PLAYER_SPEED, PLAYER_START, TICK_SPEED, TILE_SIZE
 from scripts.entities import Player
 from scripts.tilemap import Tilemap
 
@@ -18,7 +18,7 @@ class Game:
             self, 'player', PLAYER_START, (TILE_SIZE, TILE_SIZE))
         self.tilemap = Tilemap(self, TILE_SIZE) # initialize to something
         self.camera_offset = [0, 0]
-        self.camera_offset_speed = 8  # same as player speed
+        self.camera_offset_speed = PLAYER_SPEED
         self.jump_pending_duration = 150  # milliseconds
         self.jump_pending_end_time = 0
 
@@ -72,7 +72,7 @@ class Game:
             self.player.render(self.screen, camera_offset=self.camera_offset)
 
             pygame.display.update()
-            self.clock.tick(60)
+            self.clock.tick(TICK_SPEED)
 
             if did_toggle_menu:
                 break

@@ -50,15 +50,16 @@ class Tilemap:
         #     pass
 
         font = pygame.font.SysFont(None, 24)
+        int_offset = (int(camera_offset[0]), int(camera_offset[1]))
 
-        for x in range(camera_offset[0] // self.tile_size, (camera_offset[0] + surface.get_width()) // self.tile_size + 1):
-            for y in range(camera_offset[1] // self.tile_size, (camera_offset[1] + surface.get_height()) // self.tile_size + 1):
+        for x in range(int_offset[0] // self.tile_size, (int_offset[0] + surface.get_width()) // self.tile_size + 1):
+            for y in range(int_offset[1] // self.tile_size, (int_offset[1] + surface.get_height()) // self.tile_size + 1):
                 key = str(x) + ';' + str(y)
                 if key in self.tilemap:
                     tile = self.tilemap[key]
 
-                    position = (tile['position'][0] * self.tile_size - camera_offset[0],
-                                tile['position'][1] * self.tile_size - camera_offset[1])
+                    position = (tile['position'][0] * self.tile_size - int_offset[0],
+                                tile['position'][1] * self.tile_size - int_offset[1])
 
                     rect = pygame.Rect(
                         position[0], position[1], self.tile_size, self.tile_size)
