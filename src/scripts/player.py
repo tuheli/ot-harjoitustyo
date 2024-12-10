@@ -24,6 +24,8 @@ class Player(PhysicsEntity):
         """
         if self.collisions['right']:
             return True
+        if self.collisions['top']:
+            return True
         if self.position[1] >= RESET_FLOOR_HEIGHT:
             return True
         return False
