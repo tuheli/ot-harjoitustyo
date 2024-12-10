@@ -77,10 +77,16 @@ poetry run invoke start-editor
 
 ### Ohjelman suorittaminen
 
-Ohjelman pystyy suorittamaan komennolla:
+Pelin pystyy suorittamaan komennolla:
 
 ```bash
-poetry run invoke start
+poetry run invoke start-game
+```
+
+Kenttäeditorin pystyy suorittamaan komennolla:
+
+```bash
+poetry run invoke start-editor
 ```
 
 ### Testaus
