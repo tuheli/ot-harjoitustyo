@@ -6,3 +6,4 @@ PLAYER_SPEED = 1.0667 * 7  # tile size to tick ratio * movement per second in ti
 TILEMAP_SAVE_PATH = 'tilemap.json'
 PLAYER_START = (6 * TILE_SIZE, 13 * TILE_SIZE)
 EDITOR_CAMERA_SPEED = 20
+RESET_FLOOR_HEIGHT = 20 * TILE_SIZE

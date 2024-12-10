@@ -1,4 +1,4 @@
-from scripts.constants import PLAYER_SPEED
+from scripts.constants import PLAYER_SPEED, RESET_FLOOR_HEIGHT
 from scripts.entities import PhysicsEntity
 
 
@@ -23,5 +23,7 @@ class Player(PhysicsEntity):
         Has to be called after update.
         """
         if self.collisions['right']:
+            return True
+        if self.position[1] >= RESET_FLOOR_HEIGHT:
             return True
         return False
