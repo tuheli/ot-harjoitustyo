@@ -6,7 +6,7 @@ from scripts.player import Player
 from scripts.tilemap import Tilemap
 
 BACKGROUND_COLOR = (14, 219, 248)
-COUNTDOWN_DURATION = 1 * TICK_SPEED # seconds
+COUNTDOWN_DURATION = 3 * TICK_SPEED # seconds
 
 
 class Game:
@@ -43,6 +43,16 @@ class Game:
         self.screen.fill(BACKGROUND_COLOR)
         self.player.render(self.screen, camera_offset=self.camera_offset)
         self.tilemap.render(self.screen, camera_offset=self.camera_offset)
+
+        player_screen_x = self.player.position[0] - self.camera_offset[0]
+        player_screen_y = self.player.position[1] - self.camera_offset[1]
+
+        countdown_seconds = self.countdown_timer / TICK_SPEED
+
+        font = pygame.font.SysFont(None, 48)
+        countdown_text = font.render(f"Starting in {countdown_seconds:.1f} sec", True, (255, 255, 255))
+        text_rect = countdown_text.get_rect(center=(player_screen_x + TILE_SIZE // 2, player_screen_y - 30))
+        self.screen.blit(countdown_text, text_rect)
 
         pygame.display.update()
         self.clock.tick(TICK_SPEED)
