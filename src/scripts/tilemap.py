@@ -14,9 +14,6 @@ NEIGHBOR_OFFSETS = [
 
 PHYSICS_TILES = {'tiles', 'items'}
 
-MAP_LENGTH_IN_TILES = 10_000
-
-
 class Tilemap:
     def __init__(self, game_or_editor, tilemap_data={}, tile_size=64):
         self.tile_size = tile_size
