@@ -61,10 +61,16 @@ Pelihahmo eli neliö liikkuu tasaista nopeutta ruudulla oikealle. Pelaaja voi an
 poetry install
 ```
 
-2. Sovellus käynnistetään komennolla:
+2. Peli käynnistetään komennolla:
 
 ```bash
-poetry run invoke start
+poetry run invoke start-game
+```
+
+3. Kenttäeditori käynnistetään komennolla:
+
+```bash
+poetry run invoke start-editor
 ```
 
 ## Komentorivitoiminnot
