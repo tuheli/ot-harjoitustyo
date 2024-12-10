@@ -3,7 +3,7 @@ import pygame
 
 from scripts.constants import EDITOR_CAMERA_SPEED, TICK_SPEED, TILE_SIZE, TILEMAP_SAVE_PATH
 from scripts.editor_tilemap import EditorTilemap
-from scripts.utils import get_tilemap, save_tilemap_to_json, screen_to_tilemap_position, load_tilemap_data_from_json
+from scripts.utils import save_tilemap_to_json, screen_to_tilemap_position, load_tilemap_data_from_json
 
 
 class Editor:
@@ -154,9 +154,6 @@ class Editor:
             self.screen.fill((14, 219, 248))
 
             self.tilemap.render(self.screen, camera_offset=self.camera_offset)
-
-            # player_start_rect = pygame.Rect(
-            #     PLAYER_START[0] - self.camera_offset[0], PLAYER_START[1] - self.camera_offset[1], TILE_SIZE, TILE_SIZE)
 
             player_start_rect = pygame.Rect(
                 self.tilemap.player_start[0] * TILE_SIZE - self.camera_offset[0], self.tilemap.player_start[1] * TILE_SIZE - self.camera_offset[1], TILE_SIZE, TILE_SIZE)
