@@ -2,7 +2,7 @@ import sys
 import pygame
 
 from scripts.constants import PLAYER_SPEED, PLAYER_START, TICK_SPEED, TILE_SIZE
-from scripts.entities import Player
+from scripts.player import Player
 from scripts.tilemap import Tilemap
 
 
