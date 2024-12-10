@@ -1,10 +1,9 @@
-import copy
 from scripts.tilemap import Tilemap
 
 
 class EditorTilemap(Tilemap):
-    def __init__(self, game, file_path, tile_size=64):
-        super().__init__(game, file_path, tile_size)
+    def __init__(self, game_or_editor, tilemap_data=..., player_start=..., tile_size=64):
+        super().__init__(game_or_editor, tilemap_data, player_start, tile_size)
 
     def to_json(self):
         """
@@ -13,7 +12,12 @@ class EditorTilemap(Tilemap):
         Returns:
             dict: A dictionary representing the tilemap in a JSON-compatible format.
         """
-        return {key: value for key, value in self.tilemap.items()}
+        return_dict = {}
+        return_dict['tilemap'] = {}
+        for [key, value] in self.tilemap.items():
+            return_dict['tilemap'][key] = value
+        return_dict['player_start'] = self.player_start
+        return return_dict
 
     def add_tile(self, tilemap_position: tuple[int, int], tile_type='tiles', variant=0):
         """

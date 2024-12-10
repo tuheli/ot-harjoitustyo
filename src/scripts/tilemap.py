@@ -14,12 +14,14 @@ NEIGHBOR_OFFSETS = [
 
 PHYSICS_TILES = {'tiles', 'items'}
 
+
 class Tilemap:
-    def __init__(self, game_or_editor, tilemap_data={}, tile_size=64):
+    def __init__(self, game_or_editor, tilemap_data={}, player_start=(0, 0), tile_size=64):
         self.tile_size = tile_size
         self.offgrid_tiles = []
         self.game = game_or_editor
         self.tilemap = tilemap_data
+        self.player_start = player_start
 
     def tiles_around(self, compare_position):
         tiles = []
@@ -41,7 +43,7 @@ class Tilemap:
                 rects.append(pygame.Rect(tile['position'][0] * self.tile_size,
                              tile['position'][1] * self.tile_size, self.tile_size, self.tile_size))
         return rects
-    
+
     def render(self, surface: pygame.Surface, camera_offset=(0, 0)):
         # for tile in self.offgrid_tiles:
         #     pass

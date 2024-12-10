@@ -3,7 +3,7 @@ import pygame
 
 from scripts.constants import EDITOR_CAMERA_SPEED, PLAYER_START, TICK_SPEED, TILE_SIZE, TILEMAP_SAVE_PATH
 from scripts.editor_tilemap import EditorTilemap
-from scripts.utils import save_tilemap_to_json, screen_to_tilemap_position, load_tilemap_data_from_json
+from scripts.utils import get_tilemap, save_tilemap_to_json, screen_to_tilemap_position, load_tilemap_data_from_json
 
 
 class Editor:
@@ -13,7 +13,8 @@ class Editor:
 
         self.movement = [False, False, False, False]
         tilemap = load_tilemap_data_from_json(TILEMAP_SAVE_PATH)
-        self.tilemap = EditorTilemap(self, tilemap, TILE_SIZE) # initialize to something
+        self.tilemap = EditorTilemap(
+            self, tilemap_data=tilemap['tilemap'], player_start=tilemap['player_start'])
         self.camera_offset = [0, 0]
         self.camera_offset_speed = EDITOR_CAMERA_SPEED
 
@@ -24,18 +25,30 @@ class Editor:
 
     def paint_tile(self):
         screen_position = pygame.mouse.get_pos()
-        tilemap_position = screen_to_tilemap_position(screen_position, self.camera_offset)
+        tilemap_position = screen_to_tilemap_position(
+            screen_position, self.camera_offset)
         self.tilemap.add_tile(tilemap_position)
 
     def erase_tile(self):
         screen_position = pygame.mouse.get_pos()
-        tilemap_position = screen_to_tilemap_position(screen_position, self.camera_offset)
+        tilemap_position = screen_to_tilemap_position(
+            screen_position, self.camera_offset)
         self.tilemap.remove_tile(tilemap_position)
+
+    def set_player_start(self):
+        screen_position = pygame.mouse.get_pos()
+        print(f"screen pos {screen_position}")
+        tilemap_position = screen_to_tilemap_position(
+            screen_position, self.camera_offset)
+        print(f"tilemap pos {tilemap_position}")
+        self.tilemap.player_start = tilemap_position
 
     def select_tiles(self):
         if self.selection_start and self.selection_end:
-            start_pos = screen_to_tilemap_position(self.selection_start, self.camera_offset)
-            end_pos = screen_to_tilemap_position(self.selection_end, self.camera_offset)
+            start_pos = screen_to_tilemap_position(
+                self.selection_start, self.camera_offset)
+            end_pos = screen_to_tilemap_position(
+                self.selection_end, self.camera_offset)
             self.selected_tiles = []
 
             for x in range(min(start_pos[0], end_pos[0]), max(start_pos[0], end_pos[0]) + 1):
@@ -64,10 +77,10 @@ class Editor:
         pygame.draw.rect(self.screen, (50, 50, 50), background_rect)
 
         for key, description in keybinds:
-            text_surface = font.render(f"{key}: {description}", True, (255, 255, 255))
+            text_surface = font.render(
+                f"{key}: {description}", True, (255, 255, 255))
             self.screen.blit(text_surface, (10, y_offset))
             y_offset += text_height + padding
-
 
     def run(self):
         while True:
@@ -94,6 +107,8 @@ class Editor:
                         self.tilemap.move_tiles(0, -1)
                     elif event.key == pygame.K_DOWN:
                         self.tilemap.move_tiles(0, 1)
+                    elif event.key == pygame.K_t:
+                        self.set_player_start()
                 elif event.type == pygame.KEYUP:
                     if event.key == pygame.K_w:
                         self.movement[0] = False
@@ -134,7 +149,8 @@ class Editor:
 
             self.tilemap.render(self.screen, camera_offset=self.camera_offset)
 
-            player_start_rect = pygame.Rect(PLAYER_START[0] - self.camera_offset[0], PLAYER_START[1] - self.camera_offset[1], TILE_SIZE, TILE_SIZE)
+            player_start_rect = pygame.Rect(
+                PLAYER_START[0] - self.camera_offset[0], PLAYER_START[1] - self.camera_offset[1], TILE_SIZE, TILE_SIZE)
             pygame.draw.rect(self.screen, (255, 165, 0), player_start_rect)
 
             if self.is_selecting and self.selection_start:

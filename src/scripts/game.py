@@ -16,7 +16,7 @@ class Game:
 
         self.player = Player(
             self, 'player', PLAYER_START, (TILE_SIZE, TILE_SIZE))
-        self.tilemap = Tilemap(self, TILE_SIZE) # initialize to something
+        self.tilemap = Tilemap(self, TILE_SIZE)  # initialize to something
         self.camera_offset = [0, 0]
         self.camera_offset_speed = PLAYER_SPEED
         self.jump_pending_duration = 150  # milliseconds
@@ -24,8 +24,10 @@ class Game:
 
     def on_enter_game(self, tilemap: Tilemap):
         # reset / re-create necessary things
+        player_position = (
+            tilemap.player_start[0] * TILE_SIZE, tilemap.player_start[1] * TILE_SIZE)
         self.player = Player(
-            self, 'player', PLAYER_START, (TILE_SIZE, TILE_SIZE))
+            self, 'player', player_position, (TILE_SIZE, TILE_SIZE))
         self.camera_offset = [0, 0]
         self.is_jump_pending = False
         self.tilemap = tilemap
@@ -52,7 +54,7 @@ class Game:
 
             self.player.update(tilemap=self.tilemap, movement=(
                 self.movement[1] - self.movement[0], 0))
-            
+
             # is dead check
             is_dead = self.player.is_dead_this_frame()
             if is_dead:
