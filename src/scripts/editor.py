@@ -44,6 +44,31 @@ class Editor:
 
             print(f"Selected tiles: {self.selected_tiles}")
 
+    def render_keybinds_info(self):
+        font = pygame.font.SysFont(None, 24)
+        keybinds = [
+            ("W/A/S/D", "Move camera"),
+            ("Left Click (Hold)", "Paint tile"),
+            ("Right Click (Hold)", "Erase tile"),
+            ("Ctrl + S", "Save tilemap"),
+            # ("Shift + Left Click (Drag)", "Select tiles"),
+            ("Arrow Keys", "Move All Tiles"),
+        ]
+
+        y_offset = 10
+        padding = 10
+        text_height = font.get_height()
+        total_height = len(keybinds) * (text_height + padding) + padding
+
+        background_rect = pygame.Rect(5, 5, 350, total_height)
+        pygame.draw.rect(self.screen, (50, 50, 50), background_rect)
+
+        for key, description in keybinds:
+            text_surface = font.render(f"{key}: {description}", True, (255, 255, 255))
+            self.screen.blit(text_surface, (10, y_offset))
+            y_offset += text_height + padding
+
+
     def run(self):
         while True:
             for event in pygame.event.get():
@@ -51,7 +76,7 @@ class Editor:
                     pygame.quit()
                     sys.exit()
                 elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_s and pygame.key.get_mods() & pygame.KMOD_LSHIFT:
+                    if event.key == pygame.K_s and pygame.key.get_mods() & pygame.KMOD_LCTRL:
                         save_tilemap_to_json(self.tilemap, TILEMAP_SAVE_PATH)
                     elif event.key == pygame.K_w:
                         self.movement[0] = True
@@ -121,6 +146,8 @@ class Editor:
                     abs(self.selection_start[1] - current_pos[1])
                 )
                 pygame.draw.rect(self.screen, (255, 255, 0), selection_rect, 2)
+
+            self.render_keybinds_info()
 
             pygame.display.update()
             self.clock.tick(TICK_SPEED)
