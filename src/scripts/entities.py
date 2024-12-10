@@ -1,7 +1,5 @@
 import pygame
 
-from scripts.constants import PLAYER_SPEED
-
 
 class PhysicsEntity:
     def __init__(self, game, entity_type, position, size):
@@ -10,7 +8,7 @@ class PhysicsEntity:
         self.position = list(position)
         self.size = size
         self.velocity = [0, 0]
-        self.movespeed = PLAYER_SPEED
+        self.movespeed = 0
         self.max_fall_speed = 20
         self.fall_acceleration = 2
         self.collisions = {
@@ -73,27 +71,3 @@ class PhysicsEntity:
         rect = pygame.Rect(position[0], position[1],
                            self.size[0], self.size[1])
         pygame.draw.rect(surface, (220, 120, 20), rect)
-
-
-class Player(PhysicsEntity):
-    def __init__(self, game, entity_type, position, size):
-        super().__init__(game, entity_type, position, size)
-
-    def jump(self) -> bool:
-        """
-        Returns true if jump was a success.
-        Has to be called after update.
-        """
-        if not self.collisions['bottom']:
-            return False
-        self.velocity[1] = -20
-        return True
-
-    def is_dead_this_frame(self):
-        """
-        Returns true if player died during this frame.
-        Has to be called after update.
-        """
-        if self.collisions['right']:
-            return True
-        return False
