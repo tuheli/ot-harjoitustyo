@@ -2,8 +2,13 @@ from invoke import task
 
 
 @task
-def start(ctx):
-    ctx.run("python3 src/index.py", pty=True)
+def start_game(ctx):
+    ctx.run("python3 src/index_game.py", pty=True)
+
+
+@task
+def start_editor(ctx):
+    ctx.run("python3 src/index_editor.py", pty=True)
 
 
 @task
