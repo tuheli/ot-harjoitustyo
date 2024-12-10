@@ -1,7 +1,7 @@
 import sys
 import pygame
 
-from scripts.constants import PLAYER_START, TILE_SIZE, TILEMAP_SAVE_PATH
+from scripts.constants import EDITOR_CAMERA_SPEED, PLAYER_START, TICK_SPEED, TILE_SIZE, TILEMAP_SAVE_PATH
 from scripts.editor_tilemap import EditorTilemap
 from scripts.utils import save_tilemap_to_json, screen_to_tilemap_position, load_tilemap_data_from_json
 
@@ -15,7 +15,7 @@ class Editor:
         tilemap = load_tilemap_data_from_json(TILEMAP_SAVE_PATH)
         self.tilemap = EditorTilemap(self, tilemap, TILE_SIZE) # initialize to something
         self.camera_offset = [0, 0]
-        self.camera_offset_speed = 20
+        self.camera_offset_speed = EDITOR_CAMERA_SPEED
 
         self.is_selecting = False
         self.selection_start = None
@@ -95,6 +95,7 @@ class Editor:
             if not self.is_selecting and pygame.mouse.get_pressed()[2]:
                 self.erase_tile()
 
+            # velocity is not normalized which is okay for the editor
             if self.movement[0]:
                 self.camera_offset[1] -= self.camera_offset_speed
             if self.movement[1]:
@@ -122,4 +123,4 @@ class Editor:
                 pygame.draw.rect(self.screen, (255, 255, 0), selection_rect, 2)
 
             pygame.display.update()
-            self.clock.tick(60)
+            self.clock.tick(TICK_SPEED)
