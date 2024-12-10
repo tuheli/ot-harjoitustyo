@@ -33,6 +33,7 @@ def save_tilemap_to_json(editor_tilemap, filename):
     try:
         with open(filename, 'w') as file:
             json.dump(editor_tilemap.to_json(), file, indent=4)
+        print("Saved tilemap to", filename)
     except Exception as e:
         print(f"Failed to save tilemap to {filename}: {e}")
 
@@ -40,6 +41,7 @@ def load_tilemap_data_from_json(filename):
     try:
         with open(filename, 'r') as file:
             tilemap = json.load(file)
+        print("Loaded tilemap from", filename)
         return tilemap
     except Exception as e:
         print(f"Failed to load tilemap from {filename}: {e}")
