@@ -6,7 +6,7 @@ from scripts.player import Player
 from scripts.tilemap import Tilemap
 
 BACKGROUND_COLOR = (14, 219, 248)
-COUNTDOWN_DURATION = 1 # seconds
+COUNTDOWN_DURATION = 1 * TICK_SPEED # seconds
 
 
 class Game:
@@ -24,7 +24,7 @@ class Game:
         self.camera_offset_speed = PLAYER_SPEED
         self.jump_pending_duration = 150  # milliseconds
         self.jump_pending_end_time = 0
-        self.countdown_timer = COUNTDOWN_DURATION * TICK_SPEED
+        self.countdown_timer = COUNTDOWN_DURATION
 
     def on_enter_game(self, tilemap: Tilemap):
         # reset / re-create necessary things
@@ -37,7 +37,7 @@ class Game:
                               camera_offset_tiles * TILE_SIZE, 0]
         self.is_jump_pending = False
         self.tilemap = tilemap
-        self.countdown_timer = COUNTDOWN_DURATION * TICK_SPEED
+        self.countdown_timer = COUNTDOWN_DURATION
 
     def process_countdown(self):
         self.screen.fill(BACKGROUND_COLOR)
