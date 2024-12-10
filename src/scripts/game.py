@@ -5,6 +5,9 @@ from scripts.constants import PLAYER_SPEED, PLAYER_START, TICK_SPEED, TILE_SIZE
 from scripts.player import Player
 from scripts.tilemap import Tilemap
 
+BACKGROUND_COLOR = (14, 219, 248)
+COUNTDOWN_DURATION = 1 # seconds
+
 
 class Game:
     def __init__(self, screen: pygame.Surface):
@@ -21,6 +24,7 @@ class Game:
         self.camera_offset_speed = PLAYER_SPEED
         self.jump_pending_duration = 150  # milliseconds
         self.jump_pending_end_time = 0
+        self.countdown_timer = COUNTDOWN_DURATION * TICK_SPEED
 
     def on_enter_game(self, tilemap: Tilemap):
         # reset / re-create necessary things
@@ -33,6 +37,17 @@ class Game:
                               camera_offset_tiles * TILE_SIZE, 0]
         self.is_jump_pending = False
         self.tilemap = tilemap
+        self.countdown_timer = COUNTDOWN_DURATION * TICK_SPEED
+
+    def process_countdown(self):
+        self.screen.fill(BACKGROUND_COLOR)
+        self.player.render(self.screen, camera_offset=self.camera_offset)
+        self.tilemap.render(self.screen, camera_offset=self.camera_offset)
+
+        pygame.display.update()
+        self.clock.tick(TICK_SPEED)
+
+        self.countdown_timer -= 1
 
     def run(self, toggle_menu, on_player_died):
         while True:
@@ -50,9 +65,15 @@ class Game:
                         toggle_menu()
                         did_toggle_menu = True
 
+            if self.countdown_timer > 0:
+                self.process_countdown()
+                if did_toggle_menu:
+                    break
+                return
+
             self.movement[1] = True
 
-            self.screen.fill((14, 219, 248))
+            self.screen.fill(BACKGROUND_COLOR)
 
             self.player.update(tilemap=self.tilemap, movement=(
                 self.movement[1] - self.movement[0], 0))
