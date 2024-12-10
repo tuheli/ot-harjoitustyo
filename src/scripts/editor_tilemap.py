@@ -1,5 +1,7 @@
 from scripts.tilemap import Tilemap
 
+# TODO: no need for a superclass, just plain functions 
+# would be nice passing the tilemap as argument and modifying it
 
 class EditorTilemap(Tilemap):
     def __init__(self, game_or_editor, tilemap_data=..., player_start=..., tile_size=64):
