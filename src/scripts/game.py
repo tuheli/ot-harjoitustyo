@@ -7,6 +7,7 @@ from scripts.tilemap import Tilemap
 
 BACKGROUND_COLOR = (14, 219, 248)
 COUNTDOWN_DURATION = 3 * TICK_SPEED # seconds
+CAMERA_LERP_RATE = 0.5
 
 
 class Game:
@@ -32,9 +33,10 @@ class Game:
             tilemap.player_start[0] * TILE_SIZE, tilemap.player_start[1] * TILE_SIZE)
         self.player = Player(
             self, 'player', player_position, (TILE_SIZE, TILE_SIZE))
-        camera_offset_tiles = 6
+        camera_x_offset_tiles = 6
+        camera_y_offset_tiles = 8
         self.camera_offset = [player_position[0] -
-                              camera_offset_tiles * TILE_SIZE, 0]
+                              camera_x_offset_tiles * TILE_SIZE, player_position[1] - camera_y_offset_tiles * TILE_SIZE]
         self.is_jump_pending = False
         self.tilemap = tilemap
         self.countdown_timer = COUNTDOWN_DURATION
@@ -101,7 +103,21 @@ class Game:
                 elif pygame.time.get_ticks() > self.jump_pending_end_time:
                     self.is_jump_pending = False
 
+            # camera x position
             self.camera_offset[0] += self.camera_offset_speed
+
+            # camera y position
+            screen_height = self.screen.get_height()
+            player_screen_y = self.player.position[1] - self.camera_offset[1]
+            upper_threshold = screen_height // 3
+            lower_threshold = 2 * screen_height // 3
+
+            if player_screen_y < upper_threshold:
+                target_y = self.player.position[1] - upper_threshold
+                self.camera_offset[1] += (target_y - self.camera_offset[1]) * CAMERA_LERP_RATE
+            elif player_screen_y > lower_threshold:
+                target_y = self.player.position[1] - lower_threshold
+                self.camera_offset[1] += (target_y - self.camera_offset[1]) * CAMERA_LERP_RATE
 
             self.tilemap.render(self.screen, camera_offset=self.camera_offset)
             self.player.render(self.screen, camera_offset=self.camera_offset)
