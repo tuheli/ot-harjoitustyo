@@ -7,7 +7,7 @@ from scripts.utils import save_tilemap_to_json, screen_to_tilemap_position, load
 
 
 class Editor:
-    def __init__(self, screen: pygame.Surface):
+    def __init__(self, screen: pygame.Surface, exit_editor_callback=None):
         self.screen = screen
         self.clock = pygame.time.Clock()
         self.active_tilemap_path = DEFAULT_TILEMAP_PATH
@@ -28,6 +28,8 @@ class Editor:
         self.selection_start = None
         self.selection_end = None
         self.selected_tiles = []
+
+        self.exit_editor_callback = exit_editor_callback
 
     def paint_tile(self):
         screen_position = pygame.mouse.get_pos()
@@ -73,6 +75,7 @@ class Editor:
             ("T", "Set player start at mouse position"),
             ("R", "Reload tilemap file without saving"),
             ("Arrow Keys", "Move All Tiles"),
+            ("Esc", "Exit editor"),
         ]
 
         y_offset = 10
@@ -121,7 +124,11 @@ class Editor:
                     pygame.quit()
                     sys.exit()
                 elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_s and pygame.key.get_mods() & pygame.KMOD_LCTRL:
+                    if event.key == pygame.K_ESCAPE:
+                        if self.exit_editor_callback:
+                            self.exit_editor_callback()
+                        return
+                    elif event.key == pygame.K_s and pygame.key.get_mods() & pygame.KMOD_LCTRL:
                         save_tilemap_to_json(self.tilemap, self.active_tilemap_path)
                     elif event.key == pygame.K_w:
                         self.movement[0] = True
