@@ -1055,74 +1055,10 @@
                 0,
                 15
             ]
-        },
-        "6;12": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                6,
-                12
-            ]
-        },
-        "5;12": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                5,
-                12
-            ]
-        },
-        "5;11": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                5,
-                11
-            ]
-        },
-        "4;11": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                11
-            ]
-        },
-        "4;12": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                4,
-                12
-            ]
-        },
-        "3;11": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                3,
-                11
-            ]
-        },
-        "3;10": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                3,
-                10
-            ]
-        },
-        "2;10": {
-            "type": "tiles",
-            "variant": 0,
-            "position": [
-                2,
-                10
-            ]
         }
     },
     "player_start": [
-        2,
-        9
+        0,
+        13
     ]
 }
