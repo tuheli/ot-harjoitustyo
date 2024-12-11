@@ -10,10 +10,13 @@ COLOR_TEXT = (255, 255, 255)
 COLOR_TEXT_GLOW = (0, 100, 255, 50)
 
 class Menu:
-    def __init__(self, screen: pygame.Surface, load_game_callback) -> None:
+    def __init__(self, screen: pygame.Surface, load_game_callback, set_active_tilemap_path_callback) -> None:
         self.screen: pygame.Surface = screen
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
+
+        self.load_game_callback = load_game_callback
+        self.set_active_tilemap_path_callback = set_active_tilemap_path_callback
 
         title_text = "The Impossible Game"
         title_font = pygame.font.SysFont(None, 72)
@@ -38,10 +41,14 @@ class Menu:
                 COLOR_DARK,
                 COLOR_LIGHT,
                 size=self.button_size,
-                on_click=lambda: load_game_callback(f'tilemap.json')
+                on_click=lambda: self.on_click_button(f'tilemap.json')
             )
             self.level_buttons.append(button)
             first_button_y += button_y_gap
+
+    def on_click_button(self, tilemap_path):
+        self.set_active_tilemap_path_callback(tilemap_path)
+        self.load_game_callback()
 
     def run(self):
         while True:
