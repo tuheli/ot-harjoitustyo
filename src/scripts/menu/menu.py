@@ -3,6 +3,7 @@ import pygame
 from scripts.constants import DEFAULT_TILEMAP_PATH
 from scripts.menu.glow_text import GlowText
 from scripts.menu.glow_text_button import GlowTextButton
+from scripts.menu.line import Line
 
 COLOR_LIGHT = (0, 156, 255) 
 COLOR_DARK = (0, 94, 180)
@@ -10,16 +11,6 @@ COLOR_BACKGROUND = (5, 5, 5)
 COLOR_TEXT = (255, 255, 255)
 COLOR_TEXT_GLOW = (0, 100, 255, 50)
 FIRST_LINE_COLOR = (5, 120, 240)
-
-class Line:
-    def __init__(self, start, end, color, width=4):
-        self.start = start
-        self.end = end
-        self.color = color
-        self.width = width
-
-    def render(self, screen):
-        pygame.draw.line(screen, self.color, self.start, self.end, self.width)
 
 
 class Menu:
