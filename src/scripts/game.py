@@ -2,11 +2,13 @@ import sys
 import pygame
 
 from scripts.constants import PLAYER_SPEED, PLAYER_START, TICK_SPEED, TILE_SIZE
+from scripts.particle_system import ParticleSystem
 from scripts.player import Player
 from scripts.tilemap import Tilemap
 
 BACKGROUND_COLOR = (14, 219, 248)
 COUNTDOWN_DURATION = 3 * TICK_SPEED # seconds
+GAME_OVER_COUNTDOWN_DURATION = 1.5 * TICK_SPEED # seconds
 CAMERA_LERP_RATE = 0.5
 
 
@@ -26,6 +28,8 @@ class Game:
         self.jump_pending_duration = 150  # milliseconds
         self.jump_pending_end_time = 0
         self.countdown_timer = COUNTDOWN_DURATION
+        self.game_over_countdown = GAME_OVER_COUNTDOWN_DURATION
+        self.player_died_particlesystem = ParticleSystem()
 
     def on_enter_game(self, tilemap: Tilemap):
         # reset / re-create necessary things
@@ -40,6 +44,8 @@ class Game:
         self.is_jump_pending = False
         self.tilemap = tilemap
         self.countdown_timer = COUNTDOWN_DURATION
+        self.game_over_countdown = GAME_OVER_COUNTDOWN_DURATION
+        self.player_died_particlesystem = ParticleSystem(velocity_range=(-400, 400))
 
     def process_countdown(self):
         self.screen.fill(BACKGROUND_COLOR)
@@ -60,6 +66,23 @@ class Game:
         self.clock.tick(TICK_SPEED)
 
         self.countdown_timer -= 1
+
+    def process_player_died_particles(self):
+        if len(self.player_died_particlesystem.particles) == 0:
+            player_center_position = (self.player.position[0] + TILE_SIZE // 2, self.player.position[1] + TILE_SIZE // 2)
+            self.player_died_particlesystem.emit(player_center_position, 300)
+
+        self.screen.fill(BACKGROUND_COLOR)
+        self.player_died_particlesystem.update(0.017)
+
+        self.player.render(self.screen, camera_offset=self.camera_offset)
+        self.tilemap.render(self.screen, camera_offset=self.camera_offset)
+        self.player_died_particlesystem.render(self.screen, camera_offset=self.camera_offset)
+
+        self.game_over_countdown -= 1
+
+        pygame.display.update()
+        self.clock.tick(TICK_SPEED)
 
     def run(self, toggle_menu, on_player_died):
         while True:
@@ -86,13 +109,22 @@ class Game:
             self.movement[1] = True
 
             self.screen.fill(BACKGROUND_COLOR)
-
-            self.player.update(tilemap=self.tilemap, movement=(
+            
+            if not self.player.is_dead:
+                self.player.update(tilemap=self.tilemap, movement=(
                 self.movement[1] - self.movement[0], 0))
-
+            
             # is dead check
-            is_dead = self.player.is_dead_this_frame()
-            if is_dead:
+            if not self.player.is_dead:
+                self.player.is_dead = self.player.is_dead_this_frame()
+
+            if self.player.is_dead and self.game_over_countdown > 0:
+                self.process_player_died_particles()
+                if did_toggle_menu:
+                    break
+                return
+
+            if self.player.is_dead:
                 on_player_died()
 
             if self.is_jump_pending:
