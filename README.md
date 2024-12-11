@@ -65,20 +65,6 @@ Sovellus aukeaa päävalikkonäkymään, josta pelaaja voi valita pelattavan ken
 poetry install
 ```
 
-2. Peli käynnistetään komennolla:
-
-```bash
-poetry run invoke start-game
-```
-
-3. Kenttäeditori käynnistetään komennolla:
-
-```bash
-poetry run invoke start-editor
-```
-
-Pelin menusta pääsee myös editoriin.
-
 ## Komentorivitoiminnot
 
 ### Ohjelman suorittaminen
@@ -94,6 +80,8 @@ Kenttäeditorin pystyy suorittamaan komennolla:
 ```bash
 poetry run invoke start-editor
 ```
+
+Pelin menusta pääsee myös editoriin.
 
 ### Testaus
 
