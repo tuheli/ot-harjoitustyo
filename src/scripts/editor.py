@@ -18,9 +18,10 @@ class Editor:
 
         player_position = (
             self.tilemap.player_start[0] * TILE_SIZE, self.tilemap.player_start[1] * TILE_SIZE)
-        camera_offset_tiles = 9
+        camera_x_offset_tiles = 6
+        camera_y_offset_tiles = 8
         self.camera_offset = [player_position[0] -
-                              camera_offset_tiles * TILE_SIZE, 0]
+                              camera_x_offset_tiles * TILE_SIZE, player_position[1] - camera_y_offset_tiles * TILE_SIZE]
 
         self.camera_offset_speed = EDITOR_CAMERA_SPEED
 
