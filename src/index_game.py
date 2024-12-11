@@ -1,8 +1,8 @@
 import pygame
 
 from scripts.constants import SCREEN_HEIGHT, SCREEN_WIDTH
-from scripts.game import Game
-from scripts.menu import Menu
+from scripts.game.game import Game
+from scripts.menu.menu import Menu
 from scripts.utils import get_tilemap
 
 

@@ -1,4 +1,4 @@
-from scripts.tilemap import Tilemap
+from scripts.tilemap.tilemap import Tilemap
 
 # TODO: no need for a superclass, just plain functions 
 # would be nice passing the tilemap as argument and modifying it

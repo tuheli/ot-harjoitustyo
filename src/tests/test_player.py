@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock
 from scripts.entities import Player
-from scripts.tilemap import Tilemap
+from scripts.tilemap.tilemap import Tilemap
 
 
 class TestPlayer(unittest.TestCase):

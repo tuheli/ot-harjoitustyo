@@ -1,7 +1,7 @@
 import pygame
 
 from scripts.constants import SCREEN_HEIGHT, SCREEN_WIDTH
-from scripts.editor import Editor
+from scripts.editor.editor import Editor
 
 
 class App:

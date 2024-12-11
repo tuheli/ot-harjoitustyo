@@ -1,6 +1,7 @@
 import random
 
-from scripts.particle import Particle
+from scripts.particles.particle import Particle
+
 
 
 class ParticleSystem:

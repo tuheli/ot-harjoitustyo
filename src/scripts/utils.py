@@ -3,7 +3,7 @@ import os
 import pygame
 
 from scripts.constants import TILE_SIZE
-from scripts.tilemap import Tilemap
+from scripts.tilemap.tilemap import Tilemap
 
 dirname = os.path.join(os.path.dirname(__file__))
 base_image_path = os.path.join(dirname, '../../assets/images')

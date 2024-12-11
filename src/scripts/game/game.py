@@ -2,9 +2,9 @@ import sys
 import pygame
 
 from scripts.constants import PLAYER_SPEED, PLAYER_START, TICK_SPEED, TILE_SIZE
-from scripts.particle_system import ParticleSystem
-from scripts.player import Player
-from scripts.tilemap import Tilemap
+from scripts.entities.player import Player
+from scripts.particles.particle_system import ParticleSystem
+from scripts.tilemap.tilemap import Tilemap
 
 BACKGROUND_COLOR = (14, 219, 248)
 COUNTDOWN_DURATION = 1.5 * TICK_SPEED # seconds
