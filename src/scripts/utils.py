@@ -22,8 +22,8 @@ def load_images(path: str):
     return images
 
 
-def get_tilemap(game_or_editor) -> Tilemap:
-    data = load_tilemap_data_from_json('tilemap.json')
+def get_tilemap(game_or_editor, tilemap_path) -> Tilemap:
+    data = load_tilemap_data_from_json(tilemap_path)
     tilemap = data["tilemap"]
     player_start = data["player_start"]
     return Tilemap(game_or_editor, tilemap_data=tilemap, player_start=player_start)
