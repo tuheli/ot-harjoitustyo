@@ -7,7 +7,7 @@ from scripts.player import Player
 from scripts.tilemap import Tilemap
 
 BACKGROUND_COLOR = (14, 219, 248)
-COUNTDOWN_DURATION = 3 * TICK_SPEED # seconds
+COUNTDOWN_DURATION = 1.5 * TICK_SPEED # seconds
 GAME_OVER_COUNTDOWN_DURATION = 1.5 * TICK_SPEED # seconds
 CAMERA_LERP_RATE = 0.5
 
