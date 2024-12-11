@@ -1,5 +1,5 @@
 from scripts.constants import PLAYER_SPEED_SETTINGS, RESET_FLOOR_HEIGHT
-from scripts.entities.entities import PhysicsEntity
+from scripts.entities.physics_entity import PhysicsEntity
 
 
 class Player(PhysicsEntity):
