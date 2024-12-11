@@ -1,55 +1,69 @@
 import pygame
 
-from scripts.menu.level_button import LevelButton
+from scripts.menu.glow_text import GlowText
+from scripts.menu.glow_text_button import GlowTextButton
 
+COLOR_LIGHT = (170, 170, 170)
+COLOR_DARK = (100, 100, 100)
+COLOR_BACKGROUND = (5, 5, 5)
+COLOR_TEXT = (255, 255, 255)
+COLOR_TEXT_GLOW = (0, 100, 255, 50)
 
 class Menu:
-    def __init__(self, screen: pygame.Surface) -> None:
+    def __init__(self, screen: pygame.Surface, load_game_callback) -> None:
         self.screen: pygame.Surface = screen
-        self.color_text = (255, 255, 255)
-        self.color_light = (170, 170, 170)
-        self.color_dark = (100, 100, 100)
-        self.color_background = (5, 5, 5)
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
 
+        title_text = "The Impossible Game"
+        title_font = pygame.font.SysFont(None, 72)
+        title_position = (self.width / 2, 100)
+        self.title = GlowText(title_text, title_font, COLOR_TEXT, COLOR_TEXT_GLOW, title_position)
+
         self.button_size = (200, 80)
-        self.level_buttons: list[LevelButton] = []
+        self.level_buttons: list[GlowTextButton] = []
 
         button_y_gap = 100
         first_button_y = 300
-        first_button_x = self.screen.get_height() / 2
+        center_x = self.width / 2
         for i in range(4):
-            position = (first_button_x, first_button_y)
+            position = (center_x, first_button_y)
             text = f'Level {i}'
-            self.level_buttons.append(LevelButton(text, i, position))
+            button = GlowTextButton(
+                text, 
+                title_font, 
+                COLOR_TEXT, 
+                COLOR_TEXT_GLOW, 
+                position, 
+                COLOR_DARK,
+                COLOR_LIGHT,
+                size=self.button_size,
+                on_click=lambda: load_game_callback(f'tilemap.json')
+            )
+            self.level_buttons.append(button)
             first_button_y += button_y_gap
 
-    def run(self, on_click_level):
+    def run(self):
         while True:
-            did_click_level = False
-
-            self.screen.fill(self.color_background)
-
+            self.screen.fill(COLOR_BACKGROUND)
             mouse_position = pygame.mouse.get_pos()
 
+            self.title.render(self.screen)
+
             active_level_button = None
-            for level_button in self.level_buttons:
-                draw_color = self.color_dark
-                if level_button.rect.collidepoint(mouse_position):
-                    draw_color = self.color_light
-                    active_level_button = level_button
-                level_button.render(self.screen, draw_color)
+            for button in self.level_buttons:
+                is_active = False
+                if button.button_rect.collidepoint(mouse_position):
+                    is_active = True
+                    active_level_button = button
+                button.render(self.screen, is_active)
 
             for ev in pygame.event.get():
                 if ev.type == pygame.QUIT:
                     pygame.quit()
                 if ev.type == pygame.MOUSEBUTTONDOWN:
                     if active_level_button is not None:
-                        on_click_level(active_level_button.level_index)
-                        did_click_level = True
+                        active_level_button.on_click()
+                        return
 
             pygame.display.update()
-
-            if did_click_level:
-                break
