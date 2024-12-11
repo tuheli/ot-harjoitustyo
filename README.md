@@ -41,17 +41,21 @@ Käyttöliittymäluonnos perustuu pelistä otettuihin kuviin.
 - Kolme nuolta osoittaa valittuna olevaa kenttää
 - Pelin lopetusnappi alimpana (kuvassa takaisin -painike)
 
-Sovellus aukeaa päävalikkonäkymään, josta pelaaja voi valita pelattavan kentän tai sulkea sovelluksen. Kentän valitseminen johtaa pelaamisnäkymään kentässä.
+Sovellus aukeaa päävalikkonäkymään, josta pelaaja voi valita pelattavan kentän tai kenttäeditorin.
 
-### Pelin perustoiminnallisuudet
+### Kuvia sovelluksesta
 
-#### Yleiskuvaus
+#### Päävalikko
 
-Pelihahmo eli neliö liikkuu tasaista nopeutta ruudulla oikealle. Pelaaja voi antaa syötteenä hyppykomennon ja oikein ajoitettuna estää törmäyksiä esteisiin tai putoamisen ei-sallitulle alueelle.
+![](./dokumentaatio/kuvat/peli-menu.png)
 
-- Törmäyksien tunnistus kuvioiden välillä, tehty
-- Pelaajan edistymisen tarkastelu: läpäistyt kentät ja montako yritystä kutakin kenttää kohden
-- Kenttien lataaminen tiedostosta
+#### Kenttäeditori
+
+![](./dokumentaatio/kuvat/editori.png)
+
+#### Pelaaminen kentässä
+
+![](./dokumentaatio/kuvat/pelaaminen.png)
 
 ## Asennus
 
@@ -72,6 +76,8 @@ poetry run invoke start-game
 ```bash
 poetry run invoke start-editor
 ```
+
+Pelin menusta pääsee myös editoriin.
 
 ## Komentorivitoiminnot
 
