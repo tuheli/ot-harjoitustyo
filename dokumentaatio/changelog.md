@@ -14,10 +14,9 @@
 - Päävalikosta voi valita kentän (toistaiseksi kenttä on aina sama tilemap.json)
 - Pelissä pieni ajastin ennen kuin gameplay alkaa
 - Kenttä resetoituu, jos pelaaja törmää seinään tai kattoon tai putoaa liian alas
-- Huomaa, että peli käynnistyy komennolla poetry run invoke start-game
-- Huomaa, että editori käynnistyy komennolla poetry run invoke start-editor
 
 ## Viikko 7
 
 - Menu on paremman näköinen
 - Partikkeliefekti kun pelaaja häviää pelin
+- Pelisovelluksen menusta pääsee editoriin
