@@ -44,7 +44,7 @@ class Tilemap:
                              tile['position'][1] * self.tile_size, self.tile_size, self.tile_size))
         return rects
 
-    def render(self, surface: pygame.Surface, camera_offset=(0, 0)):
+    def render(self, surface: pygame.Surface, camera_offset=(0, 0), show_debug=False):
         # for tile in self.offgrid_tiles:
         #     pass
 
@@ -64,8 +64,9 @@ class Tilemap:
                         position[0], position[1], self.tile_size, self.tile_size)
 
                     pygame.draw.rect(surface, (50, 50, 50), rect)
-                    pygame.draw.rect(surface, (15, 15, 15), rect, 1)
 
-                    text_surface = font.render(
-                        f"{tile['position']}", True, (255, 255, 255))
-                    surface.blit(text_surface, position)
+                    if show_debug:
+                        pygame.draw.rect(surface, (15, 15, 15), rect, 1)
+                        text_surface = font.render(
+                            f"{tile['position']}", True, (255, 255, 255))
+                        surface.blit(text_surface, position)

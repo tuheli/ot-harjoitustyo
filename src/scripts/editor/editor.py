@@ -181,7 +181,7 @@ class Editor:
 
             self.screen.fill((14, 219, 248))
 
-            self.tilemap.render(self.screen, camera_offset=self.camera_offset)
+            self.tilemap.render(self.screen, camera_offset=self.camera_offset, show_debug=True)
 
             player_start_rect = pygame.Rect(
                 self.tilemap.player_start[0] * TILE_SIZE - self.camera_offset[0], self.tilemap.player_start[1] * TILE_SIZE - self.camera_offset[1], TILE_SIZE, TILE_SIZE)
