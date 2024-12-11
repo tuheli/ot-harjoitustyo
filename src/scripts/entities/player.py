@@ -1,12 +1,16 @@
-from scripts.constants import PLAYER_SPEED, RESET_FLOOR_HEIGHT
+from scripts.constants import PLAYER_SPEED_SETTINGS, RESET_FLOOR_HEIGHT
 from scripts.entities.entities import PhysicsEntity
 
 
 class Player(PhysicsEntity):
     def __init__(self, game, entity_type, position, size):
         super().__init__(game, entity_type, position, size)
-        self.movespeed = PLAYER_SPEED
         self.is_dead = False
+        multiplier = PLAYER_SPEED_SETTINGS['multiplier']
+        self.movespeed = PLAYER_SPEED_SETTINGS['speed'] * multiplier
+        self.max_fall_speed = PLAYER_SPEED_SETTINGS['max_fall_speed'] * multiplier
+        self.fall_acceleration = PLAYER_SPEED_SETTINGS['fall_acceleration'] * multiplier
+        self.jump_force = PLAYER_SPEED_SETTINGS['jump_force'] * multiplier
 
     def jump(self) -> bool:
         """
@@ -15,7 +19,7 @@ class Player(PhysicsEntity):
         """
         if not self.collisions['bottom']:
             return False
-        self.velocity[1] = -20
+        self.velocity[1] = self.jump_force
         return True
 
     def is_dead_this_frame(self):

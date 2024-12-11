@@ -1,7 +1,7 @@
 import sys
 import pygame
 
-from scripts.constants import PLAYER_SPEED, PLAYER_START, TICK_SPEED, TILE_SIZE
+from scripts.constants import PLAYER_SPEED_SETTINGS, PLAYER_START, TICK_SPEED, TILE_SIZE
 from scripts.entities.player import Player
 from scripts.particles.particle_system import ParticleSystem
 from scripts.tilemap.tilemap import Tilemap
@@ -27,14 +27,14 @@ class Game:
             self, 'player', PLAYER_START, (TILE_SIZE, TILE_SIZE))
         self.tilemap = Tilemap(self, TILE_SIZE)  # initialize to something
         self.camera_offset = [0, 0]
-        self.camera_offset_speed = PLAYER_SPEED
+        self.camera_offset_speed = PLAYER_SPEED_SETTINGS['speed'] * PLAYER_SPEED_SETTINGS['multiplier']
         self.jump_pending_duration = 150  # milliseconds
         self.jump_pending_end_time = 0
         self.countdown_timer = COUNTDOWN_DURATION
         self.game_over_countdown = GAME_OVER_COUNTDOWN_DURATION
         self.player_died_particlesystem = ParticleSystem()
 
-    def on_enter_game(self, tilemap: Tilemap):
+    def reset(self, tilemap: Tilemap):
         # reset / re-create necessary things
         player_position = (
             tilemap.player_start[0] * TILE_SIZE, tilemap.player_start[1] * TILE_SIZE)
