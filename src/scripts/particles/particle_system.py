@@ -3,7 +3,6 @@ import random
 from scripts.particles.particle import Particle
 
 
-
 class ParticleSystem:
     def __init__(self, velocity_range=(0, 0), size_range=(2, 5), lifetime_range=(0.5, 1.5)):
         self.particles: list[Particle] = []
@@ -13,7 +12,8 @@ class ParticleSystem:
 
     def emit(self, position, num_particles):
         for _ in range(num_particles):
-            velocity = [random.uniform(*self.velocity_range), random.uniform(*self.velocity_range)]
+            velocity = [random.uniform(
+                *self.velocity_range), random.uniform(*self.velocity_range)]
             size = random.randint(*self.size_range)
             color = (255, 255, 255)
             lifetime = random.uniform(*self.lifetime_range)

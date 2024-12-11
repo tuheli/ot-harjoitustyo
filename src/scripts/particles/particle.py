@@ -1,5 +1,6 @@
 import pygame
 
+
 class Particle:
     def __init__(self, position, velocity, size, color, lifetime):
         self.position = list(position)
@@ -15,6 +16,8 @@ class Particle:
 
     def render(self, surface, camera_offset):
         if self.lifetime > 0:
-            screen_position = (self.position[0] - camera_offset[0], self.position[1] - camera_offset[1])
-            rect = pygame.Rect(screen_position[0], screen_position[1], self.size, self.size)
+            screen_position = (
+                self.position[0] - camera_offset[0], self.position[1] - camera_offset[1])
+            rect = pygame.Rect(
+                screen_position[0], screen_position[1], self.size, self.size)
             pygame.draw.rect(surface, self.color, rect)

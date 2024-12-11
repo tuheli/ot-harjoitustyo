@@ -20,5 +20,6 @@ class EditorApp:
         while self.is_running:
             self.editor.run()
 
+
 if __name__ == '__main__':
     EditorApp().run()

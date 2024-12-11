@@ -4,10 +4,11 @@ from scripts.menu.glow_text import GlowText
 
 class GlowTextButton(GlowText):
     def __init__(self, text, font, color, glow_color, position, background_color_normal, background_color_active, border_radius=10, glow_offset=10, glow_intensity=8, on_click=None, size=(200, 80)):
-        super().__init__(text, font, color, glow_color, position, glow_offset, glow_intensity)
+        super().__init__(text, font, color, glow_color,
+                         position, glow_offset, glow_intensity)
         self.background_color_active = background_color_active
         self.background_color_normal = background_color_normal
-        
+
         self.border_radius = border_radius
         self.border_color = (255, 255, 255)
         self.border_width = 1
@@ -25,7 +26,9 @@ class GlowTextButton(GlowText):
         if is_active:
             draw_color = self.background_color_active
 
-        pygame.draw.rect(screen, draw_color, self.button_rect, border_radius=self.border_radius)
-        pygame.draw.rect(screen, self.border_color, self.button_rect, width=self.border_width, border_radius=self.border_radius)
+        pygame.draw.rect(screen, draw_color, self.button_rect,
+                         border_radius=self.border_radius)
+        pygame.draw.rect(screen, self.border_color, self.button_rect,
+                         width=self.border_width, border_radius=self.border_radius)
 
         super().render(screen)

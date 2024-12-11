@@ -7,8 +7,8 @@ from scripts.particles.particle_system import ParticleSystem
 from scripts.tilemap.tilemap import Tilemap
 
 BACKGROUND_COLOR = (14, 219, 248)
-COUNTDOWN_DURATION = 1.5 * TICK_SPEED # seconds
-GAME_OVER_COUNTDOWN_DURATION = 1.5 * TICK_SPEED # seconds
+COUNTDOWN_DURATION = 1.5 * TICK_SPEED  # seconds
+GAME_OVER_COUNTDOWN_DURATION = 1.5 * TICK_SPEED  # seconds
 CAMERA_LERP_RATE = 0.5
 
 
@@ -27,7 +27,8 @@ class Game:
             self, 'player', PLAYER_START, (TILE_SIZE, TILE_SIZE))
         self.tilemap = Tilemap(self, TILE_SIZE)  # initialize to something
         self.camera_offset = [0, 0]
-        self.camera_offset_speed = PLAYER_SPEED_SETTINGS['speed'] * PLAYER_SPEED_SETTINGS['multiplier']
+        self.camera_offset_speed = PLAYER_SPEED_SETTINGS['speed'] * \
+            PLAYER_SPEED_SETTINGS['multiplier']
         self.jump_pending_duration = 150  # milliseconds
         self.jump_pending_end_time = 0
         self.countdown_timer = COUNTDOWN_DURATION
@@ -48,7 +49,8 @@ class Game:
         self.tilemap = tilemap
         self.countdown_timer = COUNTDOWN_DURATION
         self.game_over_countdown = GAME_OVER_COUNTDOWN_DURATION
-        self.player_died_particlesystem = ParticleSystem(velocity_range=(-400, 400))
+        self.player_died_particlesystem = ParticleSystem(
+            velocity_range=(-400, 400))
 
     def process_countdown(self):
         self.player.render(self.screen, camera_offset=self.camera_offset)
@@ -60,8 +62,10 @@ class Game:
         countdown_seconds = self.countdown_timer / TICK_SPEED
 
         font = pygame.font.SysFont(None, 48)
-        countdown_text = font.render(f"Starting in {countdown_seconds:.1f} sec", True, (255, 255, 255))
-        text_rect = countdown_text.get_rect(center=(player_screen_x + TILE_SIZE // 2, player_screen_y - 30))
+        countdown_text = font.render(
+            f"Starting in {countdown_seconds:.1f} sec", True, (255, 255, 255))
+        text_rect = countdown_text.get_rect(
+            center=(player_screen_x + TILE_SIZE // 2, player_screen_y - 30))
         self.screen.blit(countdown_text, text_rect)
 
         pygame.display.update()
@@ -71,7 +75,8 @@ class Game:
 
     def process_player_died_particles(self):
         if len(self.player_died_particlesystem.particles) == 0:
-            player_center_position = (self.player.position[0] + TILE_SIZE // 2, self.player.position[1] + TILE_SIZE // 2)
+            player_center_position = (
+                self.player.position[0] + TILE_SIZE // 2, self.player.position[1] + TILE_SIZE // 2)
             self.player_died_particlesystem.emit(player_center_position, 300)
 
         self.screen.fill(BACKGROUND_COLOR)
@@ -79,7 +84,8 @@ class Game:
 
         self.player.render(self.screen, camera_offset=self.camera_offset)
         self.tilemap.render(self.screen, camera_offset=self.camera_offset)
-        self.player_died_particlesystem.render(self.screen, camera_offset=self.camera_offset)
+        self.player_died_particlesystem.render(
+            self.screen, camera_offset=self.camera_offset)
 
         self.game_over_countdown -= 1
 
@@ -130,11 +136,10 @@ class Game:
 
             self.movement[1] = True
 
-            
             if not self.player.is_dead:
                 self.player.update(tilemap=self.tilemap, movement=(
-                self.movement[1] - self.movement[0], 0))
-            
+                    self.movement[1] - self.movement[0], 0))
+
             # is dead check
             if not self.player.is_dead:
                 self.player.is_dead = self.player.is_dead_this_frame()
@@ -165,10 +170,12 @@ class Game:
 
             if player_screen_y < upper_threshold:
                 target_y = self.player.position[1] - upper_threshold
-                self.camera_offset[1] += (target_y - self.camera_offset[1]) * CAMERA_LERP_RATE
+                self.camera_offset[1] += (target_y -
+                                          self.camera_offset[1]) * CAMERA_LERP_RATE
             elif player_screen_y > lower_threshold:
                 target_y = self.player.position[1] - lower_threshold
-                self.camera_offset[1] += (target_y - self.camera_offset[1]) * CAMERA_LERP_RATE
+                self.camera_offset[1] += (target_y -
+                                          self.camera_offset[1]) * CAMERA_LERP_RATE
 
             self.tilemap.render(self.screen, camera_offset=self.camera_offset)
             self.player.render(self.screen, camera_offset=self.camera_offset)

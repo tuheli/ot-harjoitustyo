@@ -14,7 +14,8 @@ class GameApp:
         pygame.display.set_caption('The Impossible Game')
         screen_size = (SCREEN_WIDTH, SCREEN_HEIGHT)
         self.screen = pygame.display.set_mode(screen_size)
-        self.menu = Menu(self.screen, self.load_game, self.set_active_tilemap_path, self.load_editor)
+        self.menu = Menu(self.screen, self.load_game,
+                         self.set_active_tilemap_path, self.load_editor)
         self.game = Game(self.screen, self.load_menu, self.load_game)
         self.editor = Editor(self.screen, self.load_menu)
         self.active_tilemap_path = DEFAULT_TILEMAP_PATH
@@ -29,7 +30,8 @@ class GameApp:
     def load_game(self):
         print('loading game')
         tilemap = get_tilemap(self, self.active_tilemap_path)
-        self.game.reset(tilemap) # resets necessary things without recreating Game object
+        # resets necessary things without recreating Game object
+        self.game.reset(tilemap)
         self.is_on_menu = False
         self.is_on_editor = False
 

@@ -81,15 +81,16 @@ class Editor:
         y_offset = 10
         padding = 10
         text_height = font.get_height()
-        item_count = len(keybinds) + 1 # +1 for the active tilemap path
-        total_height = item_count * (text_height + padding) + padding 
+        item_count = len(keybinds) + 1  # +1 for the active tilemap path
+        total_height = item_count * (text_height + padding) + padding
 
         background_rect = pygame.Rect(5, 5, 350, total_height)
         pygame.draw.rect(self.screen, (50, 50, 50), background_rect)
 
         # shows active tilemap path on top
         font = pygame.font.SysFont(None, 24)
-        text_surface = font.render(f"Editing tilemap: {self.active_tilemap_path}", True, (255, 255, 255))
+        text_surface = font.render(
+            f"Editing tilemap: {self.active_tilemap_path}", True, (255, 255, 255))
         text_rect = text_surface.get_rect(topleft=(10, y_offset))
 
         padding = 5
@@ -102,8 +103,8 @@ class Editor:
         pygame.draw.rect(self.screen, (50, 50, 50), background_rect)
 
         self.screen.blit(text_surface, text_rect)
-        
-        y_offset += 40 # margin after active tilemap path
+
+        y_offset += 40  # margin after active tilemap path
 
         # shows keybinds
         for key, description in keybinds:
@@ -129,7 +130,8 @@ class Editor:
                             self.exit_editor_callback()
                         return
                     elif event.key == pygame.K_s and pygame.key.get_mods() & pygame.KMOD_LCTRL:
-                        save_tilemap_to_json(self.tilemap, self.active_tilemap_path)
+                        save_tilemap_to_json(
+                            self.tilemap, self.active_tilemap_path)
                     elif event.key == pygame.K_w:
                         self.movement[0] = True
                     elif event.key == pygame.K_a:
@@ -188,7 +190,8 @@ class Editor:
 
             self.screen.fill((14, 219, 248))
 
-            self.tilemap.render(self.screen, camera_offset=self.camera_offset, show_debug=True)
+            self.tilemap.render(
+                self.screen, camera_offset=self.camera_offset, show_debug=True)
 
             player_start_rect = pygame.Rect(
                 self.tilemap.player_start[0] * TILE_SIZE - self.camera_offset[0], self.tilemap.player_start[1] * TILE_SIZE - self.camera_offset[1], TILE_SIZE, TILE_SIZE)
