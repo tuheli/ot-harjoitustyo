@@ -88,7 +88,7 @@ class Menu:
         green_fade_strength = 30
         for _ in range(4):
             start = (line_start_x, 300)
-            end = (line_start_x, 800)
+            end = (line_start_x, 900)
             line = Line(start, end, line_color)
             lines.append(line)
             if direction == 'right':
