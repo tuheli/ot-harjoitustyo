@@ -1,5 +1,6 @@
 import pygame
 
+from scripts.constants import DEFAULT_TILEMAP_PATH
 from scripts.menu.glow_text import GlowText
 from scripts.menu.glow_text_button import GlowTextButton
 
@@ -41,7 +42,7 @@ class Menu:
                 COLOR_DARK,
                 COLOR_LIGHT,
                 size=self.button_size,
-                on_click=lambda: self.on_click_button(f'tilemap.json')
+                on_click=lambda: self.on_click_button(DEFAULT_TILEMAP_PATH)
             )
             self.level_buttons.append(button)
             first_button_y += button_y_gap
