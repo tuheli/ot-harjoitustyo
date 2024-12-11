@@ -9,5 +9,6 @@
 | 29.11.2024 | 3    | Lisäsin main menun, josta voi valita kentän                    |
 | 9.12.2024  | 4    | Kenttäeditori, kentän tallentaminen ja lataus json tiedostosta |
 | 10.12.2024 | 3    | Pääosin kenttäeditorin parannusta                              |
+| 11.12.2024 | 5    | Menun parannusta, partikkelisysteemi                           |
 
-Summa 24 tuntia
+Summa 29 tuntia
