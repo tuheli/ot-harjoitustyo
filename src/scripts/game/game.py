@@ -13,9 +13,12 @@ CAMERA_LERP_RATE = 0.5
 
 
 class Game:
-    def __init__(self, screen: pygame.Surface):
+    def __init__(self, screen: pygame.Surface, load_menu_callback, reload_level_callback):
         self.screen = screen
         self.clock = pygame.time.Clock()
+
+        self.load_menu = load_menu_callback
+        self.reload_level = reload_level_callback
 
         self.movement = [False, False]
         self.is_jump_pending = False
@@ -104,10 +107,8 @@ class Game:
             self.screen.blit(text_surface, (10, y_offset))
             y_offset += text_height + padding
 
-    def run(self, toggle_menu, on_player_died):
+    def run(self):
         while True:
-            did_toggle_menu = False
-
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -117,16 +118,14 @@ class Game:
                         self.is_jump_pending = True
                         self.jump_pending_end_time = pygame.time.get_ticks() + self.jump_pending_duration
                     if event.key == pygame.K_ESCAPE:
-                        toggle_menu()
-                        did_toggle_menu = True
+                        self.load_menu()
+                        return
 
             self.screen.fill(BACKGROUND_COLOR)
             self.render_keybinds_info()
 
             if self.countdown_timer > 0:
                 self.process_countdown()
-                if did_toggle_menu:
-                    break
                 return
 
             self.movement[1] = True
@@ -142,12 +141,10 @@ class Game:
 
             if self.player.is_dead and self.game_over_countdown > 0:
                 self.process_player_died_particles()
-                if did_toggle_menu:
-                    break
                 return
 
             if self.player.is_dead:
-                on_player_died()
+                self.reload_level()
 
             if self.is_jump_pending:
                 did_jump = self.player.jump()  # do this after update to know if grounded or not
@@ -178,6 +175,3 @@ class Game:
 
             pygame.display.update()
             self.clock.tick(TICK_SPEED)
-
-            if did_toggle_menu:
-                break
