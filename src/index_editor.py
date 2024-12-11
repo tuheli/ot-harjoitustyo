@@ -7,7 +7,7 @@ from scripts.editor import Editor
 class App:
     def __init__(self) -> None:
         pygame.init()
-        pygame.display.set_caption('The Impossible Game')
+        pygame.display.set_caption('The Impossible Game - Editor')
         screen_size = (SCREEN_WIDTH, SCREEN_HEIGHT)
         self.screen = pygame.display.set_mode(screen_size)
         self.editor = Editor(self.screen)
