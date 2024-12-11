@@ -48,7 +48,6 @@ class Game:
         self.player_died_particlesystem = ParticleSystem(velocity_range=(-400, 400))
 
     def process_countdown(self):
-        self.screen.fill(BACKGROUND_COLOR)
         self.player.render(self.screen, camera_offset=self.camera_offset)
         self.tilemap.render(self.screen, camera_offset=self.camera_offset)
 
@@ -84,6 +83,27 @@ class Game:
         pygame.display.update()
         self.clock.tick(TICK_SPEED)
 
+    def render_keybinds_info(self):
+        font = pygame.font.SysFont(None, 24)
+        keybinds = [
+            ("UP Arrow", "Jump"),
+            ("Esc", "Menu"),
+        ]
+
+        y_offset = 10
+        padding = 10
+        text_height = font.get_height()
+        total_height = len(keybinds) * (text_height + padding) + padding
+
+        background_rect = pygame.Rect(5, 5, 200, total_height)
+        pygame.draw.rect(self.screen, (50, 50, 50), background_rect)
+
+        for key, description in keybinds:
+            text_surface = font.render(
+                f"{key}: {description}", True, (255, 255, 255))
+            self.screen.blit(text_surface, (10, y_offset))
+            y_offset += text_height + padding
+
     def run(self, toggle_menu, on_player_died):
         while True:
             did_toggle_menu = False
@@ -100,6 +120,9 @@ class Game:
                         toggle_menu()
                         did_toggle_menu = True
 
+            self.screen.fill(BACKGROUND_COLOR)
+            self.render_keybinds_info()
+
             if self.countdown_timer > 0:
                 self.process_countdown()
                 if did_toggle_menu:
@@ -108,7 +131,6 @@ class Game:
 
             self.movement[1] = True
 
-            self.screen.fill(BACKGROUND_COLOR)
             
             if not self.player.is_dead:
                 self.player.update(tilemap=self.tilemap, movement=(
