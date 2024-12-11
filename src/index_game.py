@@ -25,7 +25,7 @@ class App:
     def load_game(self):
         print('loading game')
         tilemap = get_tilemap(self, self.active_tilemap_path)
-        self.game.on_enter_game(tilemap) # resets necessary things without recreating Game object
+        self.game.reset(tilemap) # resets necessary things without recreating Game object
         self.is_on_menu = False
 
     def load_menu(self):
