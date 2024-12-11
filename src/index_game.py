@@ -1,6 +1,5 @@
 import pygame
 
-from index_editor import EditorApp
 from scripts.constants import DEFAULT_TILEMAP_PATH, SCREEN_HEIGHT, SCREEN_WIDTH
 from scripts.editor.editor import Editor
 from scripts.game.game import Game
