@@ -6,6 +6,7 @@ class Player(PhysicsEntity):
     def __init__(self, game, entity_type, position, size):
         super().__init__(game, entity_type, position, size)
         self.movespeed = PLAYER_SPEED
+        self.is_dead = False
 
     def jump(self) -> bool:
         """
