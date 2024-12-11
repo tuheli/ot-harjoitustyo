@@ -1,11 +1,9 @@
 import pygame
 
-from scripts.constants import SCREEN_HEIGHT, SCREEN_WIDTH
+from scripts.constants import DEFAULT_TILEMAP_PATH, SCREEN_HEIGHT, SCREEN_WIDTH
 from scripts.game.game import Game
 from scripts.menu.menu import Menu
 from scripts.utils import get_tilemap
-
-DEFAULT_TILEMAP_PATH = 'tilemap.json'
 
 
 class App:
@@ -27,7 +25,7 @@ class App:
     def load_game(self):
         print('loading game')
         tilemap = get_tilemap(self, self.active_tilemap_path)
-        self.game.on_enter_game(tilemap)
+        self.game.on_enter_game(tilemap) # resets necessary things without recreating Game object
         self.is_on_menu = False
 
     def load_menu(self):
