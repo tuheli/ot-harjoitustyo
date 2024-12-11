@@ -14,7 +14,7 @@ FIRST_LINE_COLOR = (5, 120, 240)
 
 
 class Menu:
-    def __init__(self, screen: pygame.Surface, load_game_callback, set_active_tilemap_path_callback) -> None:
+    def __init__(self, screen: pygame.Surface, load_game_callback, set_active_tilemap_path_callback, load_editor_callback) -> None:
         self.screen: pygame.Surface = screen
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
@@ -29,6 +29,7 @@ class Menu:
 
         self.button_size = (400, 80)
         self.level_buttons: list[GlowTextButton] = []
+        self.editor_button = None
 
         button_y_gap = 100
         first_button_y = 400
@@ -58,6 +59,21 @@ class Menu:
             )
             self.level_buttons.append(button)
             first_button_y += button_y_gap
+
+            if i == 3:
+                self.editor_button = GlowTextButton(
+                    'Editor', 
+                    button_font, 
+                    COLOR_TEXT, 
+                    COLOR_TEXT_GLOW, 
+                    (center_x, first_button_y), 
+                    background_color_normal=COLOR_DARK,
+                    background_color_active=COLOR_LIGHT,
+                    size=self.button_size,
+                    on_click=load_editor_callback,
+                    glow_intensity=0
+                )
+                self.level_buttons.append(self.editor_button)
 
         line_x = 160
         self.left_side_lines = self.create_faded_lines('left', line_x)
