@@ -113,6 +113,23 @@ class Game:
             self.screen.blit(text_surface, (10, y_offset))
             y_offset += text_height + padding
 
+    def update_camera_offset(self):
+        # x position
+        self.camera_offset[0] += self.camera_offset_speed
+
+        # y position
+        screen_height = self.screen.get_height()
+        player_screen_y = self.player.position[1] - self.camera_offset[1]
+        upper_threshold = screen_height // 3
+        lower_threshold = 2 * screen_height // 3
+
+        if player_screen_y < upper_threshold:
+            target_y = self.player.position[1] - upper_threshold
+            self.camera_offset[1] += (target_y - self.camera_offset[1]) * CAMERA_LERP_RATE
+        elif player_screen_y > lower_threshold:
+            target_y = self.player.position[1] - lower_threshold
+            self.camera_offset[1] += (target_y - self.camera_offset[1]) * CAMERA_LERP_RATE
+
     def run(self):
         while True:
             for event in pygame.event.get():
@@ -159,23 +176,7 @@ class Game:
                 elif pygame.time.get_ticks() > self.jump_pending_end_time:
                     self.is_jump_pending = False
 
-            # camera x position
-            self.camera_offset[0] += self.camera_offset_speed
-
-            # camera y position
-            screen_height = self.screen.get_height()
-            player_screen_y = self.player.position[1] - self.camera_offset[1]
-            upper_threshold = screen_height // 3
-            lower_threshold = 2 * screen_height // 3
-
-            if player_screen_y < upper_threshold:
-                target_y = self.player.position[1] - upper_threshold
-                self.camera_offset[1] += (target_y -
-                                          self.camera_offset[1]) * CAMERA_LERP_RATE
-            elif player_screen_y > lower_threshold:
-                target_y = self.player.position[1] - lower_threshold
-                self.camera_offset[1] += (target_y -
-                                          self.camera_offset[1]) * CAMERA_LERP_RATE
+            self.update_camera_offset()
 
             self.tilemap.render(self.screen, camera_offset=self.camera_offset)
             self.player.render(self.screen, camera_offset=self.camera_offset)
