@@ -3,6 +3,7 @@ import pygame
 from scripts.constants import DEFAULT_TILEMAP_PATH, SCREEN_HEIGHT, SCREEN_WIDTH
 from scripts.editor.editor import Editor
 from scripts.game.game import Game
+from scripts.game.app_state import AppState
 from scripts.menu.menu import Menu
 from scripts.utils import get_tilemap
 
@@ -19,38 +20,32 @@ class GameApp:
         self.editor = Editor(self.screen, self.load_menu)
         self.active_tilemap_path = DEFAULT_TILEMAP_PATH
         self.game.tilemap = get_tilemap(self, self.active_tilemap_path)
-        self.is_on_menu = True
-        self.is_on_editor = False
+        self.app_state = AppState.MENU
 
     def set_active_tilemap_path(self, tilemap_path):
-        print("selected tilemap path", tilemap_path)
         self.active_tilemap_path = tilemap_path
 
     def load_game(self):
-        print('loading game')
         tilemap = get_tilemap(self, self.active_tilemap_path)
-        # resets necessary things without recreating Game object
         self.game.reset(tilemap)
-        self.is_on_menu = False
-        self.is_on_editor = False
+        self.app_state = AppState.GAMEPLAY
 
     def load_menu(self):
-        self.is_on_menu = True
-        self.is_on_editor = False
+        self.app_state = AppState.MENU
 
     def load_editor(self):
-        self.is_on_editor = True
-        self.is_on_menu = False
+        self.app_state = AppState.EDITOR
 
     def run(self):
         while True:
-            if self.is_on_menu:
+            if self.app_state == AppState.MENU:
                 self.menu.run()
-            elif self.is_on_editor:
+            elif self.app_state == AppState.EDITOR:
                 self.editor.run()
-            else:
+            elif self.app_state == AppState.GAMEPLAY:
                 self.game.run()
-
+            else:
+                raise ValueError(f'Invalid app state')
 
 if __name__ == '__main__':
     GameApp().run()
